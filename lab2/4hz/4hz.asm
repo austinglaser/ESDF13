@@ -16,6 +16,7 @@
 ; To get 4 Hz, we must switch every 900 interrupts
 ; by decrementing two registers (initialized to 9 and 100
 ; respectively)
+
             ORG   $0000           ; Startup routine at 0000h
 
 T0_INIT     MOV   R2,   #64h      ; count down from 100
@@ -35,11 +36,14 @@ WAIT        SJMP  WAIT
 ; other interrupts are not used. If they are,
 ; it's far safer to have a jump instruction at the interrupt vector with
 ; the actual ISR stored elsewhere in memory.
+
             ORG   $000B           ; timer zero interrupt vector is 000B.
 
-ISR_T0      DJNZ  R2,   INT_DONE  ; count down from 100
+ISR_T0      SETB  P1.2            ; signal interrupt begin
+            DJNZ  R2,   INT_DONE  ; count down from 100
             MOV   R2,   #64h      ; re-init r2
             DJNZ  R3,   INT_DONE  ; count down from 9 (*100)
             MOV   R2,   #09h      ; re-init r3
             CPL   P1.1            ; toggle LED pin
-INT_DONE    RETI                  ; continue waiting in main routine
+INT_DONE    CLRB  P1.2
+            RETI                  ; continue waiting in main routine
