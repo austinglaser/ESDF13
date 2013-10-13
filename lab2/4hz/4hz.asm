@@ -45,5 +45,5 @@ ISR_T0      SETB  P1.2            ; signal interrupt begin
             DJNZ  R3,   INT_DONE  ; count down from 9 (*100)
             MOV   R2,   #09h      ; re-init r3
             CPL   P1.1            ; toggle LED pin
-INT_DONE    CLRB  P1.2
+INT_DONE    CLRB  P1.2            ; signal interrupt end
             RETI                  ; continue waiting in main routine
