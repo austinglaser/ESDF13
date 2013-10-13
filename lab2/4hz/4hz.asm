@@ -19,6 +19,10 @@
 
             ORG   $0000           ; Startup routine at 0000h
 
+STARTUP     AJMP  T0_INIT         ; go to init routine (need to make space for ISR)
+
+            ORG   $0100
+
 T0_INIT     MOV   R2,#64H         ; count down from 100
             MOV   R3,#09H         ; count down from 9 (*100 = 900)
             MOV   TH0,#00H        ; init timer at 0
