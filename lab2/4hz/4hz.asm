@@ -28,11 +28,10 @@ T0_INIT     MOV   R2,#64H         ; count down from 100
             MOV   TH0,#00H        ; init timer at 0
             MOV   TL0,#00H        ; autoreload zero
             MOV   TMOD,#02H       ; int clk,timer,8-bit autoreload (mode 2)
-            SETB  TR0             ; Turns on timer
-            SETB  EA              ; enables all interrupts
-            SETB  IE0             ; Enables timer 0 interrupt
-WAIT        CPL   P1.3            ; indicate we're looping
-            SJMP  WAIT            ; idle loop
+            SETB  TCON.4          ; TCON.4 = TR0. Turns on timer
+            SETB  IE.7            ; IE.7 = EA. Enables interrupts
+            SETB  IE.1            ; IE.1 = ET0. Enables timer 0 interrupt
+WAIT        SJMP  WAIT            ; idle loop
 
 
 ; Interrupt. Generated with frequency 3600 Hz so
