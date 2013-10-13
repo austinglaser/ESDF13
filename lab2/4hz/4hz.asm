@@ -31,7 +31,8 @@ T0_INIT     MOV   R2,#64H         ; count down from 100
             SETB  TCON.4          ; TCON.4 = TR0. Turns on timer
             SETB  IE.7            ; IE.7 = EA. Enables interrupts
             SETB  IE.1            ; IE.1 = ET0. Enables timer 0 interrupt
-WAIT        SJMP  WAIT            ; idle loop
+WAIT        CPL   P1.3            ; indicate we're in loop
+            SJMP  WAIT            ; idle loop
 
 
 ; Interrupt. Generated with frequency 3600 Hz so
