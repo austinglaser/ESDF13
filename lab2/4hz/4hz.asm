@@ -28,8 +28,11 @@ T0_INIT     MOV   R2,#64H         ; count down from 100
             MOV   TH0,#00H        ; init timer at 0
             MOV   TL0,#00H        ; autoreload zero
             MOV   TMOD,#02H       ; int clk,timer,8-bit autoreload (mode 2)
-            SETB  TCON.4          ; 8Bh = TCON.4 = TR0. Turns on timer
-WAIT        SJMP  WAIT
+            SETB  TR0             ; Turns on timer
+            SETB  EA              ; enables all interrupts
+            SETB  IE0             ; Enables timer 0 interrupt
+WAIT        CPL   P1.3            ; indicate we're looping
+            SJMP  WAIT            ; idle loop
 
 
 ; Interrupt. Generated with frequency 3600 Hz so
@@ -38,8 +41,9 @@ WAIT        SJMP  WAIT
 ;
 ; NOTE: This routine can ONLY be used as-is if
 ; other interrupts are not used. If they are,
-; it's far safer to have a jump instruction at the interrupt vector with
-; the actual ISR stored elsewhere in memory.
+; it's far safer to have a jump instruction 
+; at the interrupt vector with the actual ISR 
+; stored elsewhere in memory.
 
             ORG   $000B           ; timer zero interrupt vector is 000B.
 
