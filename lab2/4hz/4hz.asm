@@ -24,7 +24,7 @@ STARTUP     AJMP  T0_INIT         ; go to init routine (need to make space for I
             ORG   $0100
 
 T0_INIT     MOV   R2,#04H         ; count down from 4
-            MOV   TH0,#E1H        ; init timer at E104h
+            MOV   TH0,#e1H        ; init timer at E104h
             MOV   TL0,#04H
             MOV   TMOD,#01H       ; int clk,timer,16-bit (mode 1)
             SETB  IE.1            ; IE.1 = ET0. Enables timer 0 interrupt
@@ -48,7 +48,7 @@ WAIT        NOP                   ; idle loop
             ORG   $000B           ; timer zero interrupt vector is 000B.
 
 ISR_T0      SETB  P1.2            ; signal interrupt begin
-            MOV   TH0,#E1H        ; init timer at 0
+            MOV   TH0,#e1H        ; init timer at 0
             MOV   TL0,#04H        ; autoreload zero
             SETB  TCON.4          ; TCON.4 = TR0. Turns on timer
             DJNZ  R2,INT_DONE     ; count down from 4
