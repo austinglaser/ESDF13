@@ -21,7 +21,7 @@ STARTUP     AJMP  T0_INIT         ; go to init routine (need to make space for I
 
             ORG   $0100
 
-T0_INIT     MOV   R2,#04H         ; count down from 4
+T0_INIT     MOV   R2,#02H         ; count down from 4
             MOV   TH0,#1EH        ; init timer at 1EFCh
             MOV   TL0,#0FCH
             MOV   TMOD,#01H       ; int clk,timer,16-bit (mode 1)
@@ -50,7 +50,7 @@ ISR_T0      SETB  P1.2            ; signal interrupt begin
             MOV   TL0,#0FCH
             SETB  TCON.4          ; TCON.4 = TR0. Turns on timer
             DJNZ  R2,INT_DONE     ; count down from 4
-            MOV   R2,#04H         ; re-init r2
+            MOV   R2,#02H         ; re-init r2
             CPL   P1.1            ; toggle LED pin
 INT_DONE    CLR   P1.2            ; signal interrupt end
             RETI                  ; continue waiting in main routine
