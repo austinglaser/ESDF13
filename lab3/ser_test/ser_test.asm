@@ -8,6 +8,10 @@
 
             ORG   $0000
 
+GOTO_START  AJMP STARTUP          ; Make sure we don't overwrite int vectors
+
+            ORG   $0100
+
 STARTUP     MOV   SCON,#50H       ; Mode 1: 8 bit UART. REN = 1
             ANL   PCON,#07FH      ; turn off baud rate doubling (clear PCON.7)
             MOV   TH1,#0FDH       ; Baud rate: 9600
