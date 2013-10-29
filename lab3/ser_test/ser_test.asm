@@ -15,6 +15,6 @@ STARTUP     MOV   SCON,#40H       ; Mode 1: 8 bit UART. No receive right now.
 TRANSMIT    MOV   SBUF,#'U'       ; Send the letter 'U'
 
 
-WAIT        JNB   TI,WAIT         ; Wait till the last char is sent
-            CLR   TI              ; Tell software to send next char
+WAIT        JNB   SCON.1,WAIT     ; Wait till the last char is sent (SCON.1 = TI)
+            CLR   SCON.1          ; Tell software to send next char
             AJMP  TRANSMIT        ; infinite loop
