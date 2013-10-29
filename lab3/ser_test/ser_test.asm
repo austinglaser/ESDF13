@@ -4,7 +4,7 @@
 ; Continuously transmits the letter 'U' on the serial port.
 ; Baud rate set to 9600
 
-            ORG   $0000h
+            ORG   $0000
 
 STARTUP     MOV   SCON,#40H       ; Mode 1: 8 bit UART. No receive right now.
             ORL   PCON,#70H       ; Use baud rate doubling (set PCON.7)
@@ -15,6 +15,6 @@ STARTUP     MOV   SCON,#40H       ; Mode 1: 8 bit UART. No receive right now.
 TRANSMIT    MOV   SBUF,#'U'       ; Send the letter 'U'
 
 
-WAIT        JNB   T1,WAIT         ; Wait till the last char is sent
-            CLR   T1              ; Tell software to send next char
+WAIT        JNB   TI,WAIT         ; Wait till the last char is sent
+            CLR   TI              ; Tell software to send next char
             AJMP  TRANSMIT        ; infinite loop
