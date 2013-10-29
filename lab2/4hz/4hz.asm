@@ -10,9 +10,9 @@
 ; Initialization routine. Sets up timer0 and registers
 ; for 4 Hz signal generation.
 ; Internal Clock: osc/12 = 921.6 kHz
-; 16 bit counter, initialized to E104h, interrupts with
+; 16 bit counter, initialized to 1EFCh, interrupts with
 ; frequence ~ 16 Hz
-; To get 4 Hz,we must switch every 4 interrupts
+; To get 4 Hz,we must switch every 2 interrupts
 ; by decrementing a register
 
             ORG   $0000           ; Startup routine at 0000h
@@ -21,16 +21,14 @@ STARTUP     AJMP  T0_INIT         ; go to init routine (need to make space for I
 
             ORG   $0100
 
-T0_INIT     MOV   R2,#02H         ; count down from 4
+T0_INIT     MOV   R2,#02H         ; count down from 2
             MOV   TH0,#1EH        ; init timer at 1EFCh
             MOV   TL0,#0FCH
             MOV   TMOD,#01H       ; int clk,timer,16-bit (mode 1)
             SETB  IE.1            ; IE.1 = ET0. Enables timer 0 interrupt
             SETB  IE.7            ; IE.7 = EA. Enables interrupts
             SETB  TCON.4          ; TCON.4 = TR0. Turns on timer
-WAIT        NOP                   ; idle loop
-            CPL   P1.3
-            SJMP  WAIT
+WAIT        SJMP  WAIT            ; idle loop
 
 
 ; Interrupt. Generated with frequency 16 Hz so
@@ -49,7 +47,7 @@ ISR_T0      SETB  P1.2            ; signal interrupt begin
             MOV   TH0,#1EH        ; init timer at 1EFCh
             MOV   TL0,#0FCH
             SETB  TCON.4          ; TCON.4 = TR0. Turns on timer
-            DJNZ  R2,INT_DONE     ; count down from 4
+            DJNZ  R2,INT_DONE     ; count down from 2
             MOV   R2,#02H         ; re-init r2
             CPL   P1.1            ; toggle LED pin
 INT_DONE    CLR   P1.2            ; signal interrupt end
