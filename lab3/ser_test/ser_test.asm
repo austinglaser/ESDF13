@@ -20,8 +20,8 @@ STARTUP     MOV   SCON,#50H       ; Mode 1: 8 bit UART. REN = 1
 
 TRANSMIT    MOV   SBUF,#'U'       ; Send the letter 'U'
 
-            MOV   R3,#FFH         
-DELAY_OUT   MOV   R2,#FFH         ; add some space between characters
+            MOV   R3,#0FFH         
+DELAY_OUT   MOV   R2,#0FFH         ; add some space between characters
 DELAY_IN    DJNZ  R2,DELAY_IN
             DJNZ  R3,DELAY_OUT
 
