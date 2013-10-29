@@ -13,7 +13,7 @@ GOTO_START  AJMP STARTUP          ; Make sure we don't overwrite int vectors
             ORG   $0100
 
 STARTUP     MOV   SCON,#50H       ; Mode 1: 8 bit UART. REN = 1
-            ORL   PCON,#70H       ; turn on baud rate doubling (set PCON.7)
+            ORL   PCON,#80H       ; turn on baud rate doubling (set PCON.7)
             MOV   TH1,#0FDH       ; Baud rate: 19200
             MOV   TMOD,#20H       ; timer 1: 8 bit autoreload (mode 2)
             SETB  TCON.6          ; Enable timer 1
