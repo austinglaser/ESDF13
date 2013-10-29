@@ -16,8 +16,8 @@ STARTUP     MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
             MOV   TMOD,#20H       ; timer 1: 8 bit autoreload (mode 2)
             SETB  TCON.6          ; Enable timer 1
 
-WAITR       JNB   RI,WAITR        ; wait till character is recieved
-            CLR   TI              ; immediately send what's in the buffer
+WAITR       JNB   SCON.0,WAITR    ; wait till character is recieved
+            CLR   SCON.1          ; immediately send what's in the buffer
 
-WAITT       JNB   TI,WAITT        ; Wait for byte to be transmitted            
+WAITT       JNB   SCON.1,WAITT    ; Wait for byte to be transmitted            
             SJMP  WAITR           ; continue waiting for recieve
