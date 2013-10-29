@@ -20,6 +20,8 @@ STARTUP     MOV   SCON,#50H       ; Mode 1: 8 bit UART. REN = 1
 
 TRANSMIT    MOV   SBUF,#'U'       ; Send the letter 'U'
 
+            MOV   R2,#FF          ; add some space between characters
+DELAY       DJNZ  R2,DELAY
 
 WAIT        JNB   SCON.1,WAIT     ; Wait till the last char is sent (SCON.1 = TI)
             CLR   SCON.1          ; Tell hardware to send next char
