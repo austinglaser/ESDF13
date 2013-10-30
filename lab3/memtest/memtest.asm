@@ -22,7 +22,7 @@ TEST_MID  MOV   DPTR,#0400h     ; Test middle of memory
           ACALL  TEST_MEM
           CJNE  A,#01h,SPIN     ; simply end on failure
 
-SUCCESS   CLRB  P1.1            ; turn LED on when successful
+LED_ON    CLR   P1.1            ; turn LED on when successful
 
 SPIN      SJMP  SPIN            ; spin when all done
 
@@ -33,13 +33,20 @@ SPIN      SJMP  SPIN            ; spin when all done
 ; if successful; otherwise writes high
           ORG   $0100
 
-TEST_MEM  MOVX  [DPTR],#0FFh    ; Write FF to memory
-          MOVX  A,[DPTR]        ; read byte back
+TEST_MEM  MOV   A,#0FFh         ; Write FF
+          MOVX  [DPTR],A        ; put in
+          MOVX  A,[DPTR]        ; take out
           CJNE  A,#0FFh,FAIL    ; Failure
 
-          MOVX  [DPTR],#00h     ; Write FF to memory
-          MOVX  A,[DPTR]        ; read byte back
+          MOV   A,#00h          ; Write 00
+          MOVX  [DPTR],A        ; put in
+          MOVX  A,[DPTR]        ; take out
           CJNE  A,#00h,FAIL     ; Failure
+
+          MOV   A,#2Ah          ; Write 00
+          MOVX  [DPTR],A        ; put in
+          MOVX  A,[DPTR]        ; take out
+          CJNE  A,#2Ah,FAIL     ; Failure
 
 SUCCESS   MOV   A,#00h          ; It worked!
           SJMP  END             ; Finish
