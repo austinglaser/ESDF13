@@ -31,8 +31,8 @@ SER_INIT  MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
 
 TEST_BOT  MOV   DPTR,#0400h     ; Test bottom of memory
           ACALL TEST_MEM
-          CJNE  A,#00h,FAIL_BOT ; go to failure
-          AJMP  TEST_TOP        ; move on to nest test
+          CJNE  A,#00h,FAIL_BOT ; simply end on failure
+          AJMP  TEST_TOP        ; move on to next test
 
 FAIL_BOT  MOV   A,#'B'          ; send 'B' to indicate where failed
           ACALL SEND_CHAR
@@ -40,8 +40,8 @@ FAIL_BOT  MOV   A,#'B'          ; send 'B' to indicate where failed
 
 TEST_TOP  MOV   DPTR,#07FFFh    ; Test top
           ACALL TEST_MEM
-          CJNE  A,#00h,FAIL_TOP ; go to failure
-          AJMP  TEST_TOP        ; move on to nest test
+          CJNE  A,#00h,FAIL_TOP ; simply end on failurr
+          AJMP  TEST_MID        ; move on to next test
 
 FAIL_TOP  MOV   A,#'T'          ; send 'B' to indicate where failed
           ACALL SEND_CHAR
@@ -50,7 +50,7 @@ FAIL_TOP  MOV   A,#'T'          ; send 'B' to indicate where failed
 TEST_MID  MOV   DPTR,#0400h     ; Test middle of memory
           ACALL TEST_MEM
           CJNE  A,#00h,FAIL_BOT ; go to failure
-          AJMP  TEST_TOP        ; move on to nest test
+          AJMP  LED_ON          ; indicate success
 
 FAIL_MID  MOV   A,#'M'          ; send 'B' to indicate where failed
           ACALL SEND_CHAR
