@@ -76,13 +76,13 @@ SUCCESS   MOV   A,#00h          ; It worked!
 
 FAIL      MOV   A,#01h          ; it didn't work...
 
-END       RET
+END_MEM   RET
 
 
 ; sends the character in the accumulator on serial
 
-SEND_CHAR JNB   SCON.1,SEND_CHAR; wait for bit to finish sending
+SEND_CHAR JNB   SCON.1,SEND_CHAR ; wait for bit to finish sending
           MOV   SBUF,A          ; put it in the buffer
           CLR   SCON.1          ; Indicate send
 
-END       RET
+END_SER   RET
