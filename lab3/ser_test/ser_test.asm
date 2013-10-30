@@ -2,7 +2,7 @@
 ; ESDF13
 ;
 ; Continuously transmits the letter 'U' on the serial port.
-; Baud rate set to 19200
+; Baud rate set to 9600
 ;
 ; Based off code found at http://www.freewebs.com/maheshwankhede/rs232.html
 
@@ -13,8 +13,8 @@ GOTO_START  AJMP STARTUP          ; Make sure we don't overwrite int vectors
             ORG   $0100
 
 STARTUP     MOV   SCON,#50H       ; Mode 1: 8 bit UART. REN = 1
-            ORL   PCON,#80H       ; turn on baud rate doubling (set PCON.7)
-            MOV   TH1,#0FDH       ; Baud rate: 19200
+            ANL   PCON,#7FH       ; turn off baud rate doubling
+            MOV   TH1,#0FDH       ; Baud rate: 9600
             MOV   TMOD,#20H       ; timer 1: 8 bit autoreload (mode 2)
             SETB  TCON.6          ; Enable timer 1
 
