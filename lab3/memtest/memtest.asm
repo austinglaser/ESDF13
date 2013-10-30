@@ -38,15 +38,15 @@ TEST_MEM  MOV   A,#0FFh         ; Write FF
           MOVX  A,[DPTR]        ; take out
           CJNE  A,#0FFh,FAIL    ; Failure
 
-          MOV   A,#00h          ; Write 00
-          MOVX  [DPTR],A        ; put in
-          MOVX  A,[DPTR]        ; take out
-          CJNE  A,#00h,FAIL     ; Failure
-
           MOV   A,#2Ah          ; Write 00
           MOVX  [DPTR],A        ; put in
           MOVX  A,[DPTR]        ; take out
           CJNE  A,#2Ah,FAIL     ; Failure
+
+          MOV   A,#00h          ; Write 00
+          MOVX  [DPTR],A        ; put in
+          MOVX  A,[DPTR]        ; take out
+          CJNE  A,#00h,FAIL     ; Failure
 
 SUCCESS   MOV   A,#00h          ; It worked!
           SJMP  END             ; Finish
