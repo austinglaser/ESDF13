@@ -11,20 +11,20 @@
 STARTUP   SETB  P1.1            ; turn off LED
 
 TEST_BOT  MOV   DPTR,#0400h     ; Test bottom of memory
-          CALL  TEST_MEM
-          CJNE  A,#01h,END      ; simply end on failure
+          ACALL  TEST_MEM
+          CJNE  A,#01h,SPIN     ; simply end on failure
 
-TEST_TOP  MOV   DPTR,#07FFFh     ; Test top
-          CALL  TEST_MEM
-          CJNE  A,#01h,END      ; simply end on failure
+TEST_TOP  MOV   DPTR,#07FFFh    ; Test top
+          ACALL  TEST_MEM
+          CJNE  A,#01h,SPIN     ; simply end on failure
 
 TEST_MID  MOV   DPTR,#0400h     ; Test middle of memory
-          CALL  TEST_MEM
-          CJNE  A,#01h,END      ; simply end on failure
+          ACALL  TEST_MEM
+          CJNE  A,#01h,SPIN     ; simply end on failure
 
 SUCCESS   CLRB  P1.1            ; turn LED on when successful
 
-END       SJMP  END             ; spin when all done
+SPIN      SJMP  SPIN            ; spin when all done
 
 
 
