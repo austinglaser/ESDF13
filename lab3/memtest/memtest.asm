@@ -72,7 +72,7 @@ TEST_MEM  MOV   A,#0FFh         ; Write FF
           CJNE  A,#00h,FAIL     ; Failure
 
 SUCCESS   MOV   A,#00h          ; It worked!
-          SJMP  END             ; Finish
+          SJMP  END_MEM         ; Finish
 
 FAIL      MOV   A,#01h          ; it didn't work...
 
