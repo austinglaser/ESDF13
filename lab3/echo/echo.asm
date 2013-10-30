@@ -18,8 +18,10 @@ STARTUP     MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
             ANL   SCON,#0FCH       ; Clear TI and RI
 
 WAITR       JNB   SCON.0,WAITR    ; wait till character is recieved
+            MOV   A,SBUF          ; Store recv'd character
+            CLR   SCON.0          ; clear RI; acknowledge receipt
+            MOV   SBUF,A          ; Restore sbuf
             CLR   SCON.1          ; immediately send what's in the buffer
 
 WAITT       JNB   SCON.1,WAITT    ; Wait for byte to be transmitted            
-            CLR   SCON.0          ; clear RI
             SJMP  WAITR           ; continue waiting for recieve
