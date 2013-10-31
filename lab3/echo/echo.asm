@@ -24,8 +24,8 @@ STARTUP     MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
 
 WAITR       JNB   SCON.0,WAITR    ; wait till character is recieved
             CLR   SCON.0          ; clear RI; acknowledge receipt
-            MOV   A,SBUF
-            MOV   SBUF,A
+;            MOV   A,SBUF
+;            MOV   SBUF,A
 
 WAITT       JNB   SCON.1,WAITT    ; Wait for byte to be transmitted            
             CLR   SCON.1
