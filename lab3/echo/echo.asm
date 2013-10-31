@@ -17,8 +17,7 @@ STARTUP     MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
             SETB  TCON.6          ; Enable timer 1
             CLR   SCON.0
 
-            SETB  SCON.1
-            CLR   SCON.1
+            MOV   SBUF,#00
 
 WAITR       JNB   SCON.0,WAITR    ; wait till character is recieved
             CLR   SCON.0          ; clear RI; acknowledge receipt
