@@ -12,7 +12,7 @@ GOTO_START  AJMP  STARTUP         ; don't overwrite interrupt vectors
 
 STARTUP     MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
             ANL   PCON,#7FH       ; no baud rate doubling
-            MOV   TH1,#0FFH       ; Baud rate: 115200
+            MOV   TH1,#0FDH       ; Baud rate: 9600
             MOV   TMOD,#20H       ; timer 1: 8 bit autoreload (mode 2)
             SETB  TCON.6          ; Enable timer 1
             ANL   SCON,#0FCH      ; Clear TI and RI
