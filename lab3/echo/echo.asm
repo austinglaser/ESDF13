@@ -15,9 +15,9 @@ STARTUP     MOV   SCON,#50H       ; mode 1: 8 bit UART. REN = 1
             MOV   TH1,#0FDH       ; Baud rate: 9600
             MOV   TMOD,#20H       ; timer 1: 8 bit autoreload (mode 2)
             SETB  TCON.6          ; Enable timer 1
-            CLR   SCON.0
 
-            MOV   SBUF,#00
+            SETB  SCON.1
+            CLR   SCON.0
 
 WAITR       JNB   SCON.0,WAITR    ; wait till character is recieved
             CLR   SCON.0          ; clear RI; acknowledge receipt
