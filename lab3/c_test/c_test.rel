@@ -1,0 +1,80 @@
+XH
+H 18 areas A global symbols
+M c_test
+O -mmcs51 --model-large
+S __mcs51_genRAMCLEAR Ref0000
+S _serial_interrupt_handler Ref0000
+S __mcs51_genXINIT Ref0000
+S _serial_init Ref0000
+S _serial_putc Ref0000
+S __sdcc_gsinit_startup Ref0000
+S __mcs51_genXRAMCLEAR Ref0000
+A _CODE size 0 flags 0 addr 0
+A RSEG size 0 flags 0 addr 0
+A REG_BANK_0 size 8 flags 4 addr 0
+A REG_BANK_1 size 8 flags 4 addr 0
+A DSEG size 0 flags 0 addr 0
+A OSEG size 0 flags 4 addr 0
+A SSEG size 1 flags 0 addr 0
+S __start__stack Def0000
+A ISEG size 0 flags 0 addr 0
+A BSEG size 0 flags 80 addr 0
+A PSEG size 0 flags 50 addr 0
+A XSEG size 0 flags 40 addr 0
+A XISEG size 0 flags 40 addr 0
+A HOME size 26 flags 20 addr 0
+A GSINIT0 size 0 flags 20 addr 0
+A GSINIT1 size 0 flags 20 addr 0
+A GSINIT2 size 0 flags 20 addr 0
+A GSINIT3 size 0 flags 20 addr 0
+A GSINIT4 size 0 flags 20 addr 0
+A GSINIT5 size 0 flags 20 addr 0
+A GSINIT size 0 flags 20 addr 0
+A GSFINAL size 3 flags 20 addr 0
+A CSEG size 10 flags 20 addr 0
+S _main Def0005
+S __sdcc_program_startup Def0000
+A CONST size 0 flags 20 addr 0
+A XINIT size 0 flags 20 addr 0
+T 00 00
+R 00 00 00 02
+T 00 00
+R 00 00 00 03
+T 00 00
+R 00 00 00 06
+T 00 00
+R 00 00 00 06
+T 00 00
+R 00 00 00 0C
+T 00 00 02 00 00 32
+R 00 00 00 0C 02 03 00 05
+T 00 04
+R 00 00 00 0C
+T 00 0B 32
+R 00 00 00 0C
+T 00 0C
+R 00 00 00 0C
+T 00 13 32
+R 00 00 00 0C
+T 00 14
+R 00 00 00 0C
+T 00 1B 32
+R 00 00 00 0C
+T 00 1C
+R 00 00 00 0C
+T 00 23 02 00 00
+R 00 00 00 0C 02 03 00 01
+T 00 00 02 00 00
+R 00 00 00 14 00 03 00 15
+T 00 00
+R 00 00 00 15
+T 00 00 12 00 05 80 FE
+R 00 00 00 15 00 03 00 15
+T 00 05
+R 00 00 00 15
+T 00 05 12 00 00
+R 00 00 00 15 02 03 00 03
+T 00 08
+R 00 00 00 15
+T 00 08 75 82 55 12 00 00 80 F8
+R 00 00 00 15 02 06 00 04
