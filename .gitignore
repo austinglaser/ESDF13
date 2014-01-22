@@ -1,2 +1,14 @@
 .*.swp    #ignore vim swap files
+
 .metatdata #eclipse project files
+
+# Compilation products
+*.asm
+*.ihx
+*.lnk
+*.lst
+*.map
+*.mem
+*.rel
+*.rst
+*.sym
