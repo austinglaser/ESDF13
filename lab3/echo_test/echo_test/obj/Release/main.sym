@@ -172,75 +172,26 @@ Symbol Table
     TXD                                                            00B1 
     _AC                                                         =  00D6 G
     _ACC                                                        =  00E0 G
-    _AUXR                                                       =  008E G
-    _AUXR1                                                      =  00A2 G
     _B                                                          =  00F0 G
-    _BDRCON                                                     =  009B G
-    _BRL                                                        =  009A G
-    _CCAP0H                                                     =  00FA G
-    _CCAP0L                                                     =  00EA G
-    _CCAP1H                                                     =  00FB G
-    _CCAP1L                                                     =  00EB G
-    _CCAP2H                                                     =  00FC G
-    _CCAP2L                                                     =  00EC G
-    _CCAP3H                                                     =  00FD G
-    _CCAP3L                                                     =  00ED G
-    _CCAP4H                                                     =  00FE G
-    _CCAP4L                                                     =  00EE G
-    _CCAPM0                                                     =  00DA G
-    _CCAPM1                                                     =  00DB G
-    _CCAPM2                                                     =  00DC G
-    _CCAPM3                                                     =  00DD G
-    _CCAPM4                                                     =  00DE G
-    _CCF0                                                       =  00D8 G
-    _CCF1                                                       =  00D9 G
-    _CCF2                                                       =  00DA G
-    _CCF3                                                       =  00DB G
-    _CCF4                                                       =  00DC G
-    _CCON                                                       =  00D8 G
-    _CF                                                         =  00DF G
-    _CH                                                         =  00F9 G
-    _CKCKON0                                                    =  008F G
-    _CKCKON1                                                    =  008F G
-    _CKRL                                                       =  0097 G
-    _CL                                                         =  00E9 G
-    _CMOD                                                       =  00D9 G
-    _CP_RL2                                                     =  00C8 G
-    _CR                                                         =  00DE G
     _CY                                                         =  00D7 G
-    _C_T2                                                       =  00C9 G
     _DPH                                                        =  0083 G
     _DPL                                                        =  0082 G
     _EA                                                         =  00AF G
-    _EC                                                         =  00AE G
-    _EECON                                                      =  00D2 G
     _ES                                                         =  00AC G
     _ET0                                                        =  00A9 G
     _ET1                                                        =  00AB G
-    _ET2                                                        =  00AD G
     _EX0                                                        =  00A8 G
     _EX1                                                        =  00AA G
-    _EXEN2                                                      =  00CB G
-    _EXF2                                                       =  00CE G
     _F0                                                         =  00D5 G
     _F1                                                         =  00D1 G
     _IE                                                         =  00A8 G
     _IE0                                                        =  0089 G
     _IE1                                                        =  008B G
-    _IEN0                                                       =  00A8 G
-    _IEN1                                                       =  00B1 G
     _INT0                                                       =  00B2 G
     _INT1                                                       =  00B3 G
     _IP                                                         =  00B8 G
-    _IPH0                                                       =  00B7 G
-    _IPH1                                                       =  00B3 G
-    _IPL0                                                       =  00B8 G
-    _IPL1                                                       =  00B2 G
     _IT0                                                        =  0088 G
     _IT1                                                        =  008A G
-    _KBE                                                        =  009D G
-    _KBF                                                        =  009E G
-    _KBLS                                                       =  009C G
     _OV                                                         =  00D2 G
     _P                                                          =  00D0 G
     _P0                                                         =  0080 G
@@ -279,92 +230,41 @@ Symbol Table
     _P3_5                                                       =  00B5 G
     _P3_6                                                       =  00B6 G
     _P3_7                                                       =  00B7 G
-    _P4                                                         =  00C0 G
-    _P4_0                                                       =  00C0 G
-    _P4_1                                                       =  00C1 G
-    _P4_2                                                       =  00C2 G
-    _P4_3                                                       =  00C3 G
-    _P4_4                                                       =  00C4 G
-    _P4_5                                                       =  00C5 G
-    _P4_6                                                       =  00C6 G
-    _P4_7                                                       =  00C7 G
-    _P5                                                         =  00D8 G
-    _P5_0                                                       =  00D8 G
-    _P5_1                                                       =  00D9 G
-    _P5_2                                                       =  00DA G
-    _P5_3                                                       =  00DB G
-    _P5_4                                                       =  00DC G
-    _P5_5                                                       =  00DD G
-    _P5_6                                                       =  00DE G
-    _P5_7                                                       =  00DF G
     _PCON                                                       =  0087 G
-    _PLS                                                        =  00BC G
-    _PPCL                                                       =  00BE G
     _PS                                                         =  00BC G
     _PSW                                                        =  00D0 G
     _PT0                                                        =  00B9 G
-    _PT0L                                                       =  00B9 G
     _PT1                                                        =  00BB G
-    _PT1L                                                       =  00BB G
-    _PT2                                                        =  00BD G
-    _PT2L                                                       =  00BD G
     _PX0                                                        =  00B8 G
-    _PX0L                                                       =  00B8 G
     _PX1                                                        =  00BA G
-    _PX1L                                                       =  00BA G
     _RB8                                                        =  009A G
-    _RCAP2H                                                     =  00CB G
-    _RCAP2L                                                     =  00CA G
-    _RCLK                                                       =  00CD G
     _RD                                                         =  00B7 G
     _REN                                                        =  009C G
     _RI                                                         =  0098 G
     _RS0                                                        =  00D3 G
     _RS1                                                        =  00D4 G
     _RXD                                                        =  00B0 G
-    _SADDR                                                      =  00A9 G
-    _SADEN                                                      =  00B9 G
     _SBUF                                                       =  0099 G
     _SCON                                                       =  0098 G
     _SM0                                                        =  009F G
     _SM1                                                        =  009E G
     _SM2                                                        =  009D G
     _SP                                                         =  0081 G
-    _SPCON                                                      =  00C3 G
-    _SPDAT                                                      =  00C5 G
-    _SPSTA                                                      =  00C4 G
     _T0                                                         =  00B4 G
     _T1                                                         =  00B5 G
-    _T2CON                                                      =  00C8 G
-    _T2CON_0                                                    =  00C8 G
-    _T2CON_1                                                    =  00C9 G
-    _T2CON_2                                                    =  00CA G
-    _T2CON_3                                                    =  00CB G
-    _T2CON_4                                                    =  00CC G
-    _T2CON_5                                                    =  00CD G
-    _T2CON_6                                                    =  00CE G
-    _T2CON_7                                                    =  00CF G
-    _T2MOD                                                      =  00C9 G
     _TB8                                                        =  009B G
-    _TCLK                                                       =  00CC G
     _TCON                                                       =  0088 G
     _TF0                                                        =  008D G
     _TF1                                                        =  008F G
-    _TF2                                                        =  00CF G
     _TH0                                                        =  008C G
     _TH1                                                        =  008D G
-    _TH2                                                        =  00CD G
     _TI                                                         =  0099 G
     _TL0                                                        =  008A G
     _TL1                                                        =  008B G
-    _TL2                                                        =  00CC G
     _TMOD                                                       =  0089 G
     _TR0                                                        =  008C G
     _TR1                                                        =  008E G
-    _TR2                                                        =  00CA G
     _TXD                                                        =  00B1 G
-    _WDTPRG                                                     =  00A7 G
-    _WDTRST                                                     =  00A6 G
     _WR                                                         =  00B6 G
   B __interrupt_vect                                               0000 R
     __mcs51_genRAMCLEAR                                            **** GX
@@ -373,10 +273,7 @@ Symbol Table
     __sdcc_gsinit_startup                                          **** GX
  14 __sdcc_program_startup                                         0000 GR
   5 __start__stack                                                 0000 GR
- 14 _getchar                                                       0017 GR
- 14 _main                                                          0021 GR
- 14 _putchar                                                       0005 GR
-  9 _putchar_c_1_1                                                 0000 R
+ 14 _main                                                          0005 GR
     a                                                              00D6 
     ac                                                             00D6 
     acc                                                            00E0 
@@ -567,7 +464,7 @@ Area Table
    6 ISEG                                                                               size    0   flags 0
    7 BSEG                                                                               size    0   flags 80
    8 PSEG                                                                               size    0   flags 50
-   9 XSEG                                                                               size    1   flags 40
+   9 XSEG                                                                               size    0   flags 40
    A XISEG                                                                              size    0   flags 40
    B HOME                                                                               size    3   flags 20
    C GSINIT0                                                                            size    0   flags 20
@@ -578,6 +475,6 @@ Area Table
   11 GSINIT5                                                                            size    0   flags 20
   12 GSINIT                                                                             size    0   flags 20
   13 GSFINAL                                                                            size    3   flags 20
-  14 CSEG                                                                               size   2B   flags 20
+  14 CSEG                                                                               size    7   flags 20
   15 CONST                                                                              size    0   flags 20
   16 XINIT                                                                              size    0   flags 20

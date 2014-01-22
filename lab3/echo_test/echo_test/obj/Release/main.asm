@@ -1,64 +1,15 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : FreeWare ANSI-C Compiler
 ; Version 2.6.0 #4309 (May 20 2007)
-; This file generated Tue Nov 19 13:44:12 2013
+; This file generated Wed Jan 22 10:20:07 2014
 ;--------------------------------------------------------
-	.module cecho
+	.module main
 	.optsdcc -mmcs51 --model-large
 	
 ;--------------------------------------------------------
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
-	.globl _P5_7
-	.globl _P5_6
-	.globl _P5_5
-	.globl _P5_4
-	.globl _P5_3
-	.globl _P5_2
-	.globl _P5_1
-	.globl _P5_0
-	.globl _P4_7
-	.globl _P4_6
-	.globl _P4_5
-	.globl _P4_4
-	.globl _P4_3
-	.globl _P4_2
-	.globl _P4_1
-	.globl _P4_0
-	.globl _PX0L
-	.globl _PT0L
-	.globl _PX1L
-	.globl _PT1L
-	.globl _PLS
-	.globl _PT2L
-	.globl _PPCL
-	.globl _EC
-	.globl _CCF0
-	.globl _CCF1
-	.globl _CCF2
-	.globl _CCF3
-	.globl _CCF4
-	.globl _CR
-	.globl _CF
-	.globl _TF2
-	.globl _EXF2
-	.globl _RCLK
-	.globl _TCLK
-	.globl _EXEN2
-	.globl _TR2
-	.globl _C_T2
-	.globl _CP_RL2
-	.globl _T2CON_7
-	.globl _T2CON_6
-	.globl _T2CON_5
-	.globl _T2CON_4
-	.globl _T2CON_3
-	.globl _T2CON_2
-	.globl _T2CON_1
-	.globl _T2CON_0
-	.globl _PT2
-	.globl _ET2
 	.globl _CY
 	.globl _AC
 	.globl _F0
@@ -134,57 +85,6 @@
 	.globl _P0_2
 	.globl _P0_1
 	.globl _P0_0
-	.globl _EECON
-	.globl _KBF
-	.globl _KBE
-	.globl _KBLS
-	.globl _BRL
-	.globl _BDRCON
-	.globl _T2MOD
-	.globl _SPDAT
-	.globl _SPSTA
-	.globl _SPCON
-	.globl _SADEN
-	.globl _SADDR
-	.globl _WDTPRG
-	.globl _WDTRST
-	.globl _P5
-	.globl _P4
-	.globl _IPH1
-	.globl _IPL1
-	.globl _IPH0
-	.globl _IPL0
-	.globl _IEN1
-	.globl _IEN0
-	.globl _CMOD
-	.globl _CL
-	.globl _CH
-	.globl _CCON
-	.globl _CCAPM4
-	.globl _CCAPM3
-	.globl _CCAPM2
-	.globl _CCAPM1
-	.globl _CCAPM0
-	.globl _CCAP4L
-	.globl _CCAP3L
-	.globl _CCAP2L
-	.globl _CCAP1L
-	.globl _CCAP0L
-	.globl _CCAP4H
-	.globl _CCAP3H
-	.globl _CCAP2H
-	.globl _CCAP1H
-	.globl _CCAP0H
-	.globl _CKCKON1
-	.globl _CKCKON0
-	.globl _CKRL
-	.globl _AUXR1
-	.globl _AUXR
-	.globl _TH2
-	.globl _TL2
-	.globl _RCAP2H
-	.globl _RCAP2L
-	.globl _T2CON
 	.globl _B
 	.globl _ACC
 	.globl _PSW
@@ -206,8 +106,6 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
-	.globl _putchar
-	.globl _getchar
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -233,57 +131,6 @@ _IP	=	0x00b8
 _PSW	=	0x00d0
 _ACC	=	0x00e0
 _B	=	0x00f0
-_T2CON	=	0x00c8
-_RCAP2L	=	0x00ca
-_RCAP2H	=	0x00cb
-_TL2	=	0x00cc
-_TH2	=	0x00cd
-_AUXR	=	0x008e
-_AUXR1	=	0x00a2
-_CKRL	=	0x0097
-_CKCKON0	=	0x008f
-_CKCKON1	=	0x008f
-_CCAP0H	=	0x00fa
-_CCAP1H	=	0x00fb
-_CCAP2H	=	0x00fc
-_CCAP3H	=	0x00fd
-_CCAP4H	=	0x00fe
-_CCAP0L	=	0x00ea
-_CCAP1L	=	0x00eb
-_CCAP2L	=	0x00ec
-_CCAP3L	=	0x00ed
-_CCAP4L	=	0x00ee
-_CCAPM0	=	0x00da
-_CCAPM1	=	0x00db
-_CCAPM2	=	0x00dc
-_CCAPM3	=	0x00dd
-_CCAPM4	=	0x00de
-_CCON	=	0x00d8
-_CH	=	0x00f9
-_CL	=	0x00e9
-_CMOD	=	0x00d9
-_IEN0	=	0x00a8
-_IEN1	=	0x00b1
-_IPL0	=	0x00b8
-_IPH0	=	0x00b7
-_IPL1	=	0x00b2
-_IPH1	=	0x00b3
-_P4	=	0x00c0
-_P5	=	0x00d8
-_WDTRST	=	0x00a6
-_WDTPRG	=	0x00a7
-_SADDR	=	0x00a9
-_SADEN	=	0x00b9
-_SPCON	=	0x00c3
-_SPSTA	=	0x00c4
-_SPDAT	=	0x00c5
-_T2MOD	=	0x00c9
-_BDRCON	=	0x009b
-_BRL	=	0x009a
-_KBLS	=	0x009c
-_KBE	=	0x009d
-_KBF	=	0x009e
-_EECON	=	0x00d2
 ;--------------------------------------------------------
 ; special function bits
 ;--------------------------------------------------------
@@ -363,55 +210,6 @@ _RS1	=	0x00d4
 _F0	=	0x00d5
 _AC	=	0x00d6
 _CY	=	0x00d7
-_ET2	=	0x00ad
-_PT2	=	0x00bd
-_T2CON_0	=	0x00c8
-_T2CON_1	=	0x00c9
-_T2CON_2	=	0x00ca
-_T2CON_3	=	0x00cb
-_T2CON_4	=	0x00cc
-_T2CON_5	=	0x00cd
-_T2CON_6	=	0x00ce
-_T2CON_7	=	0x00cf
-_CP_RL2	=	0x00c8
-_C_T2	=	0x00c9
-_TR2	=	0x00ca
-_EXEN2	=	0x00cb
-_TCLK	=	0x00cc
-_RCLK	=	0x00cd
-_EXF2	=	0x00ce
-_TF2	=	0x00cf
-_CF	=	0x00df
-_CR	=	0x00de
-_CCF4	=	0x00dc
-_CCF3	=	0x00db
-_CCF2	=	0x00da
-_CCF1	=	0x00d9
-_CCF0	=	0x00d8
-_EC	=	0x00ae
-_PPCL	=	0x00be
-_PT2L	=	0x00bd
-_PLS	=	0x00bc
-_PT1L	=	0x00bb
-_PX1L	=	0x00ba
-_PT0L	=	0x00b9
-_PX0L	=	0x00b8
-_P4_0	=	0x00c0
-_P4_1	=	0x00c1
-_P4_2	=	0x00c2
-_P4_3	=	0x00c3
-_P4_4	=	0x00c4
-_P4_5	=	0x00c5
-_P4_6	=	0x00c6
-_P4_7	=	0x00c7
-_P5_0	=	0x00d8
-_P5_1	=	0x00d9
-_P5_2	=	0x00da
-_P5_3	=	0x00db
-_P5_4	=	0x00dc
-_P5_5	=	0x00dd
-_P5_6	=	0x00de
-_P5_7	=	0x00df
 ;--------------------------------------------------------
 ; overlayable register banks
 ;--------------------------------------------------------
@@ -448,8 +246,6 @@ __start__stack:
 ; external ram data
 ;--------------------------------------------------------
 	.area XSEG    (XDATA)
-_putchar_c_1_1:
-	.ds 1
 ;--------------------------------------------------------
 ; external initialized ram data
 ;--------------------------------------------------------
@@ -499,15 +295,14 @@ __sdcc_program_startup:
 ;--------------------------------------------------------
 	.area CSEG    (CODE)
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'putchar'
+;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;c                         Allocated with name '_putchar_c_1_1'
 ;------------------------------------------------------------
-;	cecho.c:5: void putchar(char c) {
+;	main.c:6: void main(void)
 ;	-----------------------------------------
-;	 function putchar
+;	 function main
 ;	-----------------------------------------
-_putchar:
+_main:
 	ar2 = 0x02
 	ar3 = 0x03
 	ar4 = 0x04
@@ -516,73 +311,8 @@ _putchar:
 	ar7 = 0x07
 	ar0 = 0x00
 	ar1 = 0x01
-;	genReceive
-	mov	a,dpl
-	mov	dptr,#_putchar_c_1_1
-	movx	@dptr,a
-;	cecho.c:6: while(!TI);   // spin until last character sent 
-00101$:
-;	genIfx
-;	genIfxJump
-;	Peephole 108.d	removed ljmp by inverse jump logic
-;	cecho.c:8: TI = 0;       
-;	genAssign
-;	Peephole 250.a	using atomic test and clear
-	jbc	_TI,00108$
-	sjmp	00101$
-00108$:
-;	cecho.c:9: SBUF = c; 
-;	genAssign
-	mov	dptr,#_putchar_c_1_1
-	movx	a,@dptr
-	mov	_SBUF,a
-;	Peephole 300	removed redundant label 00104$
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'getchar'
-;------------------------------------------------------------
-;------------------------------------------------------------
-;	cecho.c:12: char getchar(void) {
-;	-----------------------------------------
-;	 function getchar
-;	-----------------------------------------
-_getchar:
-;	cecho.c:13: while(!RI);
-00101$:
-;	genIfx
-;	genIfxJump
-;	Peephole 108.d	removed ljmp by inverse jump logic
-;	cecho.c:15: RI = 0;
-;	genAssign
-;	Peephole 250.a	using atomic test and clear
-	jbc	_RI,00108$
-	sjmp	00101$
-00108$:
-;	cecho.c:16: return SBUF;
-;	genAssign
-	mov	r2,_SBUF
-;	genRet
-	mov	dpl,r2
-;	Peephole 300	removed redundant label 00104$
-	ret
-;------------------------------------------------------------
-;Allocation info for local variables in function 'main'
-;------------------------------------------------------------
-;------------------------------------------------------------
-;	cecho.c:19: void main (void)
-;	-----------------------------------------
-;	 function main
-;	-----------------------------------------
-_main:
-;	cecho.c:28: while(1) {
+;	main.c:11: while(1);
 00102$:
-;	cecho.c:29: putchar(getchar());
-;	genCall
-	lcall	_getchar
-;	genCall
-	mov  r2,dpl
-;	Peephole 177.a	removed redundant mov
-	lcall	_putchar
 ;	Peephole 112.b	changed ljmp to sjmp
 	sjmp	00102$
 ;	Peephole 259.a	removed redundant label 00104$ and ret
