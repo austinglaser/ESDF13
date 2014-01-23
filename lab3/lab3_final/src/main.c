@@ -8,6 +8,7 @@ int main(void)
 {
   printf("Hi, welcome!\n");
   while(1) {
+    putchar(getchar());
   }
 }
 
