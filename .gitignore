@@ -4,7 +4,6 @@
 
 # Compilation products
 *.asm
-*.ihx
 *.lnk
 *.lst
 *.map
