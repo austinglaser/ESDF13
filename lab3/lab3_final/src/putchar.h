@@ -3,6 +3,6 @@
 
 #include <at89c51ed2.h>
 
-void putchar(int c);
+void putchar(char in_c);
 
 #endif

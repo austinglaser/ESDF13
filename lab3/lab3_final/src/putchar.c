@@ -1,8 +1,8 @@
 #include "putchar.h"
 
-void putchar(int c)
+void putchar(char in_c)
 {
-  if (c == '\n') {
+  if (in_c == '\n') {
     while (!TI);
     TI = 0;
     SBUF = 0x0D;
@@ -10,5 +10,5 @@ void putchar(int c)
 
   while (!TI);
   TI = 0;
-  SBUF = c;
+  SBUF = in_c;
 }

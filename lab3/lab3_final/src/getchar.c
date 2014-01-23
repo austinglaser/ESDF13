@@ -1,6 +1,6 @@
 #include "putchar.h"
 
-int getchar(void c)
+char getchar(void c)
 {
   char in_c;
 
