@@ -1,15 +1,16 @@
 #include <at89c51ed2.h>
+#include <stdio.h>
 
-int putchar(int c);
+void putchar(int c);
 
 int main(void)
 {
+  printf("Hi, welcome!\n");
   while(1) {
-    putchar('U');
   }
 }
 
-int putchar(int c)
+void putchar(int c)
 {
   if (c == '\n') {
     while (!TI);
@@ -20,6 +21,4 @@ int putchar(int c)
   while (!TI);
   TI = 0;
   SBUF = c;
-
-  return c;
 }
