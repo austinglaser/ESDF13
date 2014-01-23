@@ -14,7 +14,8 @@ SDCC = /usr/local/share/sdcc
 # Configure project (memory model, device, memory map)
 DEVICE = mcs51
 MODEL = large
-CODE_LOC = 0x3000	# To work with Paulmon
+#CODE_LOC = 0x3000	# To work with Paulmon
+CODE_LOC = 0x0000
 CODE_SIZE = 0x8000
 XRAM_LOC = 0x0000
 XRAM_SIZE = 0x8000
