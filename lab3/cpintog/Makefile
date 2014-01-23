@@ -14,8 +14,8 @@ SDCC = /usr/local/share/sdcc
 # Configure project (memory model, device, memory map)
 DEVICE = mcs51
 MODEL = large
-#CODE_LOC = 0x3000	# To work with Paulmon
-CODE_LOC = 0x0000
+CODE_LOC = 0x3000	# To work with Paulmon
+#CODE_LOC = 0x0000
 CODE_SIZE = 0x8000
 XRAM_LOC = 0x0000
 XRAM_SIZE = 0x8000
@@ -42,7 +42,7 @@ all: cpintog.ihx
 
 # Hex file
 cpintog.ihx: cpintog.rel
-	sdcc $(LFLAGS) cpintog.rel -o cpintog.ihx
+	sdcc $(LFLAGS) cpintog.rel -o cpintog.hex
 
 # Object files (TODO: Make more general. See ARM stuff)
 cpintog.rel: cpintog.c
@@ -51,4 +51,4 @@ cpintog.rel: cpintog.c
 # A phony target gets built no matter the status of dependencies
 .PHONY: clean
 clean:
-	rm -rf *.rel *.lst *.rst *.mem *.map *.sym *.lnk *.ihx *.asm
+	rm -rf *.rel *.lst *.rst *.mem *.map *.sym *.lnk *.hex *.asm
