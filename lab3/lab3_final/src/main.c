@@ -1,7 +1,8 @@
-#include <at89c51ed2.h>
-#include <stdio.h>
+#include "main.h"
 
-void putchar(int c);
+extern unsigned char xdata heap[HEAP_SIZE];
+
+void setup(void);
 
 int main(void)
 {
@@ -10,15 +11,7 @@ int main(void)
   }
 }
 
-void putchar(int c)
+void setup(void)
 {
-  if (c == '\n') {
-    while (!TI);
-    TI = 0;
-    SBUF = 0x0D;
-  }
-
-  while (!TI);
-  TI = 0;
-  SBUF = c;
+  malloc_setup();
 }
