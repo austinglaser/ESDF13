@@ -5,6 +5,7 @@
 #include <at89c51ed2.h>
 #include "strtoi.h"
 #include "putchar.h"
+#include "printn.h"
 #include "getchar.h"
 #include "getstring.h"
 #include "lab3_malloc.h"
