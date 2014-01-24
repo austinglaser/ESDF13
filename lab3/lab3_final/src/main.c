@@ -25,6 +25,7 @@ int main(void)
   buffer[i] = '\0';
 
 
+  printf("%d\n", i);
   printf("You entered %s!\n", buffer);
 
 
