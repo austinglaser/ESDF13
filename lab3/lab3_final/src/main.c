@@ -95,7 +95,9 @@ int main(void)
       printn(n_stored, 10, 0);
       printf(" characters in buffer0, with ");
       printn(buff_len - n_stored, 10, 0);
-      printf(" free\n| ");
+      printf(" free");
+      finish_line('|', 54);
+      printf("\n| ");
 
       printf("Buffer 0: ");
       printn(buff_len, 10, 0);
@@ -126,7 +128,6 @@ int main(void)
         if (i % 50 == 0) printf("\n| ");
         putchar(buffer0[i]);
       }
-      printf("\n| \n| ");
 
       printf("\n+");
       for (i = 0; i < 52; i++) putchar('-');
