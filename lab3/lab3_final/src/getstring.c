@@ -9,6 +9,7 @@ char * getstring(char * buff, int buff_len)
 
   for (i = 0; i < (buff_len - 1); i++) {
     c = getchar();
+    putchar(c);
 
     if (c == '\n' || c == '\r') {
       if (c == '\r') putchar('\n');

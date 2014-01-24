@@ -48,7 +48,7 @@ int main(void)
       n_atprompt = 0;
     }
 
-    // get a character (getchar() echoes)
+    // get a character
     c = getchar();
 
     if (c == 0x08) {
@@ -88,27 +88,30 @@ int main(void)
     // flush
     if (c == '?') {
       // print general stats
-      printf("\nStored ");
+      putchar('+');
+      for (i = 0; i < 52; i++) putchar('-');
+      putchar('+');
+      printf("\n| Stored ");
       printn(n_stored, 10, 0);
       printf(" characters in buffer0, with ");
       printn(buff_len - n_stored, 10, 0);
-      printf(" free\n");
+      printf(" free\n| ");
 
       printf("Buffer 0: ");
       printn(buff_len, 10, 0);
       printf(" bytes at ");
       printn((int) buffer0, 16, 4);
-      putchar('\n');
+      printf("\n| ");
 
       printf("Buffer 1: ");
       printn(buff_len/4, 10, 0);
       printf(" bytes at ");
       printn((int) buffer1, 16, 4);
-      putchar('\n');
+      printf("\n| ");
 
       // print stats for stat_letters letter 
       for (i = 0; i < N_STAT_LETTERS; i++) {
-        if (i % 10 == 0) printf("\n");
+        if (i % 10 == 0) printf("\n| ");
         putchar(stat_letters[i]);
         putchar('-');
         printn(numberof[stat_letters[i]],10, 0);
@@ -118,12 +121,16 @@ int main(void)
       }
 
       // clear buffer, printing to screen
-      printf("\n\nFlushing buffer...");
+      printf("\n| \n| Flushing buffer...");
       for (i = 0; i < n_stored; i++) {
-        if (i % 50 == 0) putchar('\n');
+        if (i % 50 == 0) printf("\n| ");
         putchar(buffer0[i]);
       }
-      printf("\n\n");
+      printf("\n| \n| ");
+
+      putchar('+');
+      for (i = 0; i < 52; i++) putchar('-');
+      putchar('+');
 
       // actually clear buffer
       n_stored = 0;
