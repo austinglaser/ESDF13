@@ -7,6 +7,7 @@ void get_buffers(void);
 void hexdump(char const * buffer, int len);
 
 #define MAX_INPUT_LEN 128
+#define N_STAT_LETTERS    14
 
 // user inputed length of buffer
 long buff_len;
@@ -22,6 +23,7 @@ int main(void)
   char c;
   int n_chars = 0;
   int n_stored = 0;
+  char stat_letters[N_STAT_LETTERS] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'F', 'E', 'M', 'A'};
 
   // initialize heap
   setup();
@@ -68,20 +70,11 @@ int main(void)
       printf("Buffer 0: %d bytes at %x\n", buff_len, buffer0);
       printf("Buffer 1: %d bytes at %x\n\n", buff_len/4, buffer1);
 
-      // print specific letter stats
-      // 0-9
-      for (c = '0'; c <= '9'; c++) {
-        printf("%c-%d ", c, numberof[c]);
-        numberof[c] = 0;
+      // print stats for stat_letters letter 
+      for (i = 0; i < N_STAT_LETTERS; i++) {
+        printf("%c-%d ", stat_letters[i], numberof[stat_letters[i]]);
+        numberof[stat_letters[i]] = 0;
       }
-      // FEMA
-      printf("\n");
-      printf("F-%d ", 'F', numberof['F']); numberof['F'] = 0;
-      printf("E-%d ", 'E', numberof['E']); numberof['E'] = 0;
-      printf("M-%d ", 'M', numberof['M']); numberof['M'] = 0;
-      printf("A-%d ", 'A', numberof['A']); numberof['A'] = 0;
-      printf("\n");
-
 
       // clear buffer, printing to screen
       printf("Flushing buffer...");
@@ -124,7 +117,7 @@ void get_buffers(void) {
 
   while (1) {
     // user prompt, get their string
-    printf("Enter your buffer size ( 24 <= n <= 1600, n a multiple of 8): ");
+    printf("Enter your buffer size (in the range [24 1600] and a multiple of 8): ");
     getstring(string_buffer, MAX_INPUT_LEN);
 
     // attempt to convert to integer
