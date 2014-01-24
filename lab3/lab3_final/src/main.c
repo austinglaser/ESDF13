@@ -24,10 +24,10 @@ int main(void)
   }
   buffer[i] = '\0';
 
+  printf("You entered ");
 
-  printf("%d\n", i);
-  printf("You entered %s!\n", buffer);
-
+  for (i = 0; buffer[i]; i++) putchar(buffer[i]);
+  putchar('\n');
 
   while(1);
 }
