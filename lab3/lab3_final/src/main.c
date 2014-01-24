@@ -41,11 +41,11 @@ int main(void)
   }
 
   while(1) {
-    // get a character (getchar() echoes)
-    c = getchar();
-
     // print a prompt every 50 characters
     if (n_chars % 50 == 0) printf("\n>> ");
+
+    // get a character (getchar() echoes)
+    c = getchar();
 
     // log the character
     n_chars++;
