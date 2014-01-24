@@ -9,7 +9,5 @@ char getchar(void)
   in_c = SBUF;
   RI = 0;
 
-  putchar(in_c);
-
   return in_c;
 }
