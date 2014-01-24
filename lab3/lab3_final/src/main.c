@@ -66,6 +66,7 @@ void get_buffers(void) {
       if (!buffer0 || !buffer1) {
         if (buffer0) free(buffer0);
         if (buffer1) free(buffer1); //this is probably pedantic, but we'll leave it in anyway
+        printf("Failure Allocating.\n");
       }
       else break; // everything went well!
     }
