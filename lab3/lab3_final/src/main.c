@@ -50,6 +50,8 @@ int main(void)
     if (c == 0x08) {
       n_chars--;
       numberof[buffer0[n_chars]]--;
+      putchar(' ');
+      putchar(0x08);
       continue;
     }
 
