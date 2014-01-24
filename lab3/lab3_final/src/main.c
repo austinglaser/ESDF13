@@ -11,6 +11,7 @@ int main(void)
   int i;
   printf("Hi, welcome!\n");
 
+  while (1) {
   printf("Enter a string (truncates after 128 chars): ");
 
 
@@ -28,8 +29,7 @@ int main(void)
 
   for (i = 0; buffer[i]; i++) putchar(buffer[i]);
   putchar('\n');
-
-  while(1);
+  }
 }
 
 void setup(void)
