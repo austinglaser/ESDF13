@@ -28,7 +28,7 @@ int main(void)
   char stat_letters[N_STAT_LETTERS] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'F', 'E', 'M', 'A'};
 
   // initialize heap
-  //setup();
+  setup();
 
   // prompt user for size, allocate buffers.
   // Blocks while waiting for correct input
