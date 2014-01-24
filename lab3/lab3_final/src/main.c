@@ -24,6 +24,7 @@ int main(void)
   char c;
   int n_chars = 0;
   int n_stored = 0;
+  int n_atprompt = 0;
   char stat_letters[N_STAT_LETTERS] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'F', 'E', 'M', 'A'};
 
   // initialize heap
@@ -42,7 +43,10 @@ int main(void)
 
   while(1) {
     // print a prompt every 50 characters
-    if (n_chars % 50 == 0) printf("\n>> ");
+    if (n_atprompt == 50 == 0) {
+      printf("\n>> ");
+      n_atprompt = 0;
+    }
 
     // get a character (getchar() echoes)
     c = getchar();
@@ -51,8 +55,11 @@ int main(void)
       n_stored--;
       numberof[buffer0[n_stored]]--;
 
-      putchar(' ');
-      putchar(0x08);
+      if (n_atprompt > 0) {
+        putchar(' ');
+        putchar(0x08);
+        n_atprompt--;
+      }
       continue;
     }
 
@@ -117,6 +124,8 @@ int main(void)
       n_chars = 0;
 
       prompt();
+
+      n_atprompt = 0;
     }
 
     // report
@@ -125,7 +134,7 @@ int main(void)
       hexdump(buffer0, n_stored);
       putchar('\n');
 
-      printf("\n>> ");
+      n_atprompt = 0;
     }
   }
 }
