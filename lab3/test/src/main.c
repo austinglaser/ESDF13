@@ -2,5 +2,5 @@
 
 int main(void)
 {
-  while(1) putchar('U');
+  while(1) putchar(getchar());
 }
