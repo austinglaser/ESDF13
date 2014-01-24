@@ -103,17 +103,22 @@ int main(void)
       printn(buff_len, 10, 0);
       printf(" bytes at ");
       printn((int) buffer0, 16, 4);
+      finish_line('|', 54);
       printf("\n| ");
 
       printf("Buffer 1: ");
       printn(buff_len/4, 10, 0);
       printf(" bytes at ");
       printn((int) buffer1, 16, 4);
+      finish_line('|', 54);
       printf("\n| ");
 
       // print stats for stat_letters letter 
       for (i = 0; i < N_STAT_LETTERS; i++) {
-        if (i % 10 == 0) printf("\n| ");
+        if (i % 10 == 0){
+          finish_line('|', 54);
+          printf("\n| ");
+        }
         putchar(stat_letters[i]);
         putchar('-');
         printn(numberof[stat_letters[i]],10, 0);
@@ -123,9 +128,13 @@ int main(void)
       }
 
       // clear buffer, printing to screen
-      printf("\n| \n| Flushing buffer...");
+      printf("\n| ");                   finish_line('|', 54);
+      printf("\n| Flushing buffer..."); finish_line('|', 54);
       for (i = 0; i < n_stored; i++) {
-        if (i % 50 == 0) printf("\n| ");
+        if (i % 50 == 0) {
+          finish_line('|', 54);
+          printf("\n| ");
+        }
         putchar(buffer0[i]);
       }
 

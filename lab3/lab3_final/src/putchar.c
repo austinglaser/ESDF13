@@ -21,7 +21,7 @@ void putchar(char in_c)
 void finish_line(char term, int len)
 {
   int i;
-  int padding = len - n_online - 1;
+  int padding = len - n_online;
   for (i = 0; i < padding; i++) putchar(' ');
   putchar(term);
 }
