@@ -16,7 +16,10 @@ int main(void)
 
   for (i = 0; i < 127; i++) {
     c = getchar();
-    if (c == '\n') break;
+    if (c == '\n' || c == '\r') {
+      putchar('\n');
+      break;
+    }
     buffer[i] = c;
   }
   buffer[i] = '\0';
