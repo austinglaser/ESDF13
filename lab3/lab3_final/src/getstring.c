@@ -11,7 +11,7 @@ char * getstring(char * buff, int buff_len)
     c = getchar();
 
     if (c == '\n' || c == '\r') {
-      putchar('\n');
+      if (c == '\r') putchar('\n');
       break;
     }
 
