@@ -25,10 +25,11 @@ int main(void)
   }
   buffer[i] = '\0';
 
-  printf("You entered ");
+  printf("You entered \"");
 
   for (i = 0; buffer[i]; i++) putchar(buffer[i]);
   putchar('\n');
+  putchar('"');
   }
 }
 
