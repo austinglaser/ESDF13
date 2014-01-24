@@ -72,12 +72,13 @@ int main(void)
 
       // print stats for stat_letters letter 
       for (i = 0; i < N_STAT_LETTERS; i++) {
+        if (i % 10 == 0) printf("\n");
         printf("%c-%d ", stat_letters[i], numberof[stat_letters[i]]);
         numberof[stat_letters[i]] = 0;
       }
 
       // clear buffer, printing to screen
-      printf("Flushing buffer...");
+      printf("\n\nFlushing buffer...");
       for (i = 0; i < n_stored; i++) {
         if (i % 50 == 0) printf("\n");
         printf("%c", buffer0[i]);
