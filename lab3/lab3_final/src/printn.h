@@ -5,6 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printn(int val, int base);
+void printn(int val, int base, int n_digits);
 
 #endif

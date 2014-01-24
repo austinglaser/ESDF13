@@ -63,25 +63,25 @@ int main(void)
       }
     }
 
-    // flush?
+    // flush
     if (c == '?') {
       // print general stats
       printf("\nStored ");
-      printn(n_stored, 10);
+      printn(n_stored, 10, 0);
       printf(" characters in buffer0, with ");
-      printn(buff_len - n_stored, 10);
+      printn(buff_len - n_stored, 10, 0);
       printf(" free\n");
 
       printf("Buffer 0: ");
-      printn(buff_len, 10);
+      printn(buff_len, 10, 0);
       printf(" bytes at ");
-      printn((int) buffer0, 16);
+      printn((int) buffer0, 16, 4);
       putchar('\n');
 
       printf("Buffer 1: ");
-      printn(buff_len/4, 10);
+      printn(buff_len/4, 10, 0);
       printf(" bytes at ");
-      printn((int) buffer0, 16);
+      printn((int) buffer1, 16, 4);
       putchar('\n');
 
       // print stats for stat_letters letter 
@@ -89,7 +89,7 @@ int main(void)
         if (i % 10 == 0) printf("\n");
         putchar(stat_letters[i]);
         putchar('-');
-        printn(numberof[stat_letters[i]],10);
+        printn(numberof[stat_letters[i]],10, 0);
         putchar(' ');
 
         numberof[stat_letters[i]] = 0;
@@ -108,10 +108,11 @@ int main(void)
       n_chars = 0;
     }
 
-    // report?
+    // report
     if (c == '=') {
+      putchar('\n');
       hexdump(buffer0, n_stored);
-      printf("\n");
+      putchar('\n');
     }
   }
 }
@@ -169,10 +170,10 @@ void hexdump(char const * buffer, int len)
 
   for (i = 0; i < len; i++) {
     if (i % 16 == 0) {
-      printn((int) (buffer + i), 16);
+      printn((int) (buffer + i), 16, 4);
       printf(": ");
     }
-    printn(buffer[i], 16);
+    printn(buffer[i], 16, 2);
     putchar(' ');
   }
   printf("\n");
