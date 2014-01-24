@@ -121,6 +121,8 @@ int main(void)
       putchar('\n');
       hexdump(buffer0, n_stored);
       putchar('\n');
+
+      printf("\n>> ");
     }
   }
 }
