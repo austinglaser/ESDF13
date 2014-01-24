@@ -6,6 +6,7 @@ int strtoi(char const * str, char ** endptr){
   int result = 0;
   int negative = 0;
   int i;
+  int len = strlen(str);
 
   // check for a negative value
   if (str[0] == '-') {
@@ -18,15 +19,16 @@ int strtoi(char const * str, char ** endptr){
       return 0;
     }
 
-    // Ensure we don't break on negative strings
+    // move to next character, decrement the length
+    // to only account for the numerical characters
     str++;
+    len--;
   }
 
   // loop through all characters
   for (i = 0; str[i]; i++) {
     // if it's numeric, add it to the sum
-    if ('0' <= str[i] && str[i] <= '9') result += (str[i] - '0') * ipow(10, i);
-    // otherwise we finish conversion
+    if ('0' <= str[i] && str[i] <= '9') result += (str[i] - '0') * ipow(10, (len - i - 1));
     else                                break;
   }
   // last unconverted character. Used to

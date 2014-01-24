@@ -1,6 +1,8 @@
 #ifndef _STRTOI_H_
 #define _STRTOI_H_
 
+#include <string.h>
+
 // no implementation of strtol in stdlib, so I'm making my own
 // (functionality similar but not identical to the library function)
 // In particular, this doesn't use a flexible base.
