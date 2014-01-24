@@ -47,6 +47,12 @@ int main(void)
     // get a character (getchar() echoes)
     c = getchar();
 
+    if (c == 0x08) {
+      n_chars--;
+      numberof[buffer0[n_chars]]--;
+      continue;
+    }
+
     // log the character
     n_chars++;
     numberof[c]++;
