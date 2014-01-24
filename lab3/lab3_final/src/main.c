@@ -52,16 +52,21 @@ int main(void)
     c = getchar();
 
     if (c == 0x08) {
-      n_stored--;
-      numberof[buffer0[n_stored]]--;
+      if (n_stored > 0) {
+        n_stored--;
+        numberof[buffer0[n_stored]]--;
+      }
 
       if (n_atprompt > 0) {
+        putchar(0x08);
         putchar(' ');
         putchar(0x08);
         n_atprompt--;
       }
+
       continue;
     }
+    else putchar(c);
 
     // log the character
     n_chars++;
@@ -127,7 +132,6 @@ int main(void)
       prompt();
 
       n_atprompt = 0;
-      printf("\n>> ");
     }
 
     // report
@@ -136,8 +140,9 @@ int main(void)
       hexdump(buffer0, n_stored);
       putchar('\n');
 
-      n_atprompt = 0;
       printf("\n>> ");
+
+      n_atprompt = 0;
     }
   }
 }
@@ -211,4 +216,6 @@ void prompt(void)
   printf("\nEnter characters for storage.\n");
   printf("\t=\thex dump of buffer contents\n");
   printf("\t?\tprint stats and clear buffer\n");
+
+  printf("\n>> ");
 }
