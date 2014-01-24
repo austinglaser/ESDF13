@@ -43,7 +43,7 @@ int main(void)
 
   while(1) {
     // print a prompt every 50 characters
-    if (n_atprompt == 50 == 0) {
+    if (n_atprompt == 50) {
       printf("\n>> ");
       n_atprompt = 0;
     }
