@@ -88,7 +88,7 @@ int main(void)
     // flush
     if (c == '?') {
       // print general stats
-      putchar('+');
+      printf("\n\n+");
       for (i = 0; i < 52; i++) putchar('-');
       putchar('+');
       printf("\n| Stored ");
@@ -128,7 +128,7 @@ int main(void)
       }
       printf("\n| \n| ");
 
-      putchar('+');
+      printf("\n+");
       for (i = 0; i < 52; i++) putchar('-');
       putchar('+');
 
