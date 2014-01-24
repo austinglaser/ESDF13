@@ -4,6 +4,7 @@ extern unsigned char xdata heap[HEAP_SIZE];
 
 void setup(void);
 void get_buffers(void);
+void prompt(void);
 void hexdump(char const * buffer, int len);
 
 #define MAX_INPUT_LEN 128
@@ -32,10 +33,7 @@ int main(void)
   // Blocks while waiting for correct input
   get_buffers();
 
-  // print instructions
-  printf("Enter characters for storage.\n");
-  printf("\t=\thex dump of buffer contents\n");
-  printf("\t?\tprint stats and clear buffer\n");
+  prompt();
 
   // store the number of occurrences of each ascii character
   for (i = 0; i < 256; i++) {
@@ -46,6 +44,8 @@ int main(void)
     // get a character (getchar() echoes)
     c = getchar();
 
+    // print a prompt every 50 characters
+    if (n_chars % 50 == 0) printf("\n>> ");
 
     // log the character
     n_chars++;
@@ -106,6 +106,8 @@ int main(void)
       // actually clear buffer
       n_stored = 0;
       n_chars = 0;
+
+      prompt();
     }
 
     // report
@@ -178,4 +180,12 @@ void hexdump(char const * buffer, int len)
     putchar(' ');
   }
   printf("\n");
+}
+
+void prompt(void)
+{
+  // print instructions
+  printf("\nEnter characters for storage.\n");
+  printf("\t=\thex dump of buffer contents\n");
+  printf("\t?\tprint stats and clear buffer\n");
 }

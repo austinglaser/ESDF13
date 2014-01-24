@@ -7,6 +7,7 @@
 
 # Compile using sdcc
 CC = sdcc
+AS = asx8051
 
 # Directory Structure
 PROJ_DIR = .
