@@ -127,6 +127,7 @@ int main(void)
       prompt();
 
       n_atprompt = 0;
+      printf("\n>> ");
     }
 
     // report
@@ -136,6 +137,7 @@ int main(void)
       putchar('\n');
 
       n_atprompt = 0;
+      printf("\n>> ");
     }
   }
 }
