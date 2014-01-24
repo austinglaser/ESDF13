@@ -7,7 +7,7 @@ int main(void)
   while(1) {
     c = getchar();
     putchar(' ');
-    printn(c, 16, 0);
+    printn(c, 16, 2);
     putchar('\n');
   }
 }
