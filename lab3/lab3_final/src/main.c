@@ -55,8 +55,8 @@ void get_buffers(void) {
 
     //check for conversion validity
     if (*string_buffer == '\0' || *endptr != '\0')  printf("Non-integer input.\n");
-    else if (buff_len < 24 || buff_len > 1600)      printf("Value out of range.\n");
-    else if (buff_len % 8 != 0)                     printf("Value must be divisible by 8.\n");
+    else if (buff_len < 24 || buff_len > 1600)      printf("Value out of range (%d).\n", buff_len);
+    else if (buff_len % 8 != 0)                     printf("Value must be divisible by 8 (%d).\n", buff_len);
     else {
       // attempt to allocate buffers
       buffer0 = malloc(buff_len);
