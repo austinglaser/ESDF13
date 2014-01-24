@@ -170,6 +170,7 @@ void hexdump(char const * buffer, int len)
 
   for (i = 0; i < len; i++) {
     if (i % 16 == 0) {
+      printf("\n");
       printn((int) (buffer + i), 16, 4);
       printf(": ");
     }
