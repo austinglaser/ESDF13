@@ -65,6 +65,7 @@ int main(void)
 
     // log the character
     n_chars++;
+    n_atprompt++;
     numberof[c]++;
     
     // is it a storage character?
