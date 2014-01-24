@@ -48,8 +48,9 @@ int main(void)
     c = getchar();
 
     if (c == 0x08) {
-      n_chars--;
-      numberof[buffer0[n_chars]]--;
+      n_stored--;
+      numberof[buffer0[n_stored]]--;
+
       putchar(' ');
       putchar(0x08);
       continue;
