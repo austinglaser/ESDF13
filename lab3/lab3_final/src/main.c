@@ -7,9 +7,10 @@ void setup(void);
 int main(void)
 {
   printf("Hi, welcome!\n");
+  printf("Type a 'c': ");
   while(getchar() != 'c');
 
-  printf("You hit the right key!");
+  printf("\nYou hit the right key!");
 
   while(1);
 }
