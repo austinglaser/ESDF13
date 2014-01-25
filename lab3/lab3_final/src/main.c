@@ -177,12 +177,12 @@ void hexdump(char const * buffer, int len)
 {
   int i;
   // top border
-  printf("\n+-----------------------------------------------------+");
+  printf("\n\n+-------------------------------------------------------+");
   // left border
   printf("\n| ");
 
   // header line
-  printf("      + 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F");
+  printf("    + 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F");
 
   for (i = 0; i < len; i++) {
     // every 16 bytes, print a border and
@@ -198,7 +198,7 @@ void hexdump(char const * buffer, int len)
     putchar(' ');
   }
   finish_line('|', 57);
-  printf("\n+-----------------------------------------------------+");
+  printf("\n+-------------------------------------------------------+\n");
 }
 
 void prompt(void)
