@@ -3,11 +3,15 @@
 
 #include <string.h>
 
-// no implementation of strtol in stdlib, so I'm making my own
-// (functionality similar but not identical to the library function)
-// In particular, this doesn't use a flexible base.
-// endptr points to the last unconverted character on return,
-// providing a way to test the validity of conversions.
+// Parses 'str' and looks for a decimal value, which is then returned.
+// 'endptr' will point towards the last unconverted character on return.
+// For successful, full conversions this should be the null terminator
+// and the string should be nonempty.
+//
+// Based of the specification for strtol(), an unimplemented c library
+// routine. 
+//
+// TODO: Add support for multiple bases
 int strtoi(char const * str, char ** endptr);
 
 #endif
