@@ -65,12 +65,12 @@ int main(void)
   // print variable initial values, for debut purposes
 #ifdef DEBUG
   printf("Initial Info:\n");
-  printf("&n_stored:\t"); printn((unsigned) &n_stored, 16, 0);   putchar('\n');
-  printf("&n_chars:\t"); printn((unsigned) &n_chars, 16, 0);   putchar('\n');
-  printf("&n_atprompt:\t"); printn((unsigned) &n_atprompt, 16, 0);   putchar('\n');
-  printf("&buffer0:\t"); printn((unsigned) buffer0, 16, 0);   putchar('\n');
-  printf("&buffer1:\t"); printn((unsigned) buffer1, 16, 0);   putchar('\n');
-  printf("&numberof:\t"); printn((unsigned) numberof, 16, 0);   putchar('\n');
+  printf("&n_stored:\t"); printn((unsigned) &n_stored, 16, 4);   putchar('\n');
+  printf("&n_chars:\t"); printn((unsigned) &n_chars, 16, 4);   putchar('\n');
+  printf("&n_atprompt:\t"); printn((unsigned) &n_atprompt, 16, 4);   putchar('\n');
+  printf("&buffer0:\t"); printn((unsigned) buffer0, 16, 4);   putchar('\n');
+  printf("&buffer1:\t"); printn((unsigned) buffer1, 16, 4);   putchar('\n');
+  printf("&numberof:\t"); printn((unsigned) numberof, 16, 4);   putchar('\n');
   putchar('\n');
 #endif
 
