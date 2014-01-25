@@ -37,8 +37,12 @@ I_INCLUDE = $(addprefix -I,$(dir $(INCLUDE)))
 
 # Find local source files, generate list of objects
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+ASM_FILES = $(wildcard $(SRC_DIR)/*.asm)
 HDR_FILES = $(wildcard $(SRC_DIR)/*.h)
-OBJ_FILES = $(addprefix $(BIN_DIR)/,$(notdir $(SRC_FILES:.c=.rel)))
+
+COBJ_FILES = $(addprefix $(BIN_DIR)/,$(notdir $(SRC_FILES:.c=.rel)))
+AOBJ_FILES = $(addprefix $(BIN_DIR)/,$(notdir $(ASM_FILES:.asm=.rel)))
+OBJ_FILES = $(COBJ_FILES) $(AOBJ_FILES)
 
 # Flags for the compiler
 CFLAGS = --opt-code-size -m$(DEVICE) --std-sdcc99 --model-$(MODEL) $(I_INCLUDE)
@@ -60,10 +64,15 @@ bin/main.hex: $(OBJ_FILES) $(HDR_FILES) Makefile
 	@echo "Linking..."
 	@$(CC) $(LFLAGS) $(OBJ_FILES) -o bin/main.hex
 
-# Object files (TODO: Make more general. See ARM stuff)
-$(OBJ_FILES): $(BIN_DIR)/%.rel: $(SRC_DIR)/%.c $(SRC_DIR)/%.h
+# Object files from c sources
+$(COBJ_FILES): $(BIN_DIR)/%.rel: $(SRC_DIR)/%.c $(SRC_DIR)/%.h
 	@echo "Compiling $< ---> $@"
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+# Object files from assembly sources
+$(AOBJ_FILES): $(BIN_DIR)/%.rel: $(SRC_DIR)/%.asm $(SRC_DIR)/%.h
+	@echo "Assembling $< ---> $@"
+	@$(AS) $(CFLAGS) -c $< -o $@
 
 # A phony target gets built no matter the status of dependencies
 .PHONY: clean
