@@ -57,6 +57,7 @@ int main(void)
   printn(n_stored, 10, 0);   putchar(' ');
   printn(n_chars, 10, 0);    putchar(' ');
   printn(n_atprompt, 10, 0); putchar(' ');
+  printf(stat_letters);
   putchar('\n');
 
   prompt();
