@@ -1,7 +1,5 @@
 #include "main.h"
 
-extern unsigned char xdata heap[HEAP_SIZE];
-
 // run all setup functions. Currently just initializes heap
 void setup(void);
 
@@ -26,7 +24,7 @@ void flush();
 
 // global vars
 long near buff_len;
-int xdata numberof[256];
+int xdata __at(0x1610) numberof[256];
 volatile char stat_letters[N_STAT_LETTERS + 1];
 volatile int near n_stored = 0;
 volatile int near n_chars = 0;

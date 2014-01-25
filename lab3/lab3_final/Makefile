@@ -51,6 +51,7 @@ LFLAGS = --model-$(MODEL) --out-fmt-ihx\
 # Main build target
 all: bin/main.hex
 
+debug: clean
 debug: CFLAGS += -DDEBUG
 debug: all
 
