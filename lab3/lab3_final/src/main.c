@@ -233,6 +233,8 @@ void hexdump(char const * buffer, int len)
   printf("\n+");
   for (i = 0; i < 55; i++) putchar('-');
   printf("+\n");
+
+  DEBUGPORT('d');
 }
 
 void prompt(void)
@@ -256,7 +258,7 @@ void flush(void) {
   // It might make sense to do this automatically with putchar (toggle box on/off
   // with a global variable) but for now, it's all manual.
   printf("\n\n+");
-  for (i = 0; i < 52; i++) putchar('-');
+  for (i = 0; i < 55; i++) putchar('-');
   printf("+\n| ");
   
   // give statistics about buffer state
@@ -264,36 +266,36 @@ void flush(void) {
   printf(" characters since last flush.");
 
   // box borders
-  finish_line('|', 54); printf("\n| ");
-  finish_line('|', 54); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
 
   // give statistics about buffer state
   printf("Stored "); printn(n_stored, 10, 0);
   printf(" characters in buffer0, with "); printn(buff_len - n_stored, 10, 0); printf(" free");
 
   // box borders
-  finish_line('|', 54); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
 
   // buffer 0 size
   printf("Buffer 0: "); printn(buff_len, 10, 0);
   printf(" bytes at "); printn((int) buffer0, 16, 4);
 
   // box borders
-  finish_line('|', 54); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
 
   // buffer 1 size
   printf("Buffer 1: "); printn(buff_len/4, 10, 0);
   printf(" bytes at "); printn((int) buffer1, 16, 4);
 
   // box borders
-  finish_line('|', 54); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
 
   // print stats for important letters
   for (i = 0; i < N_STAT_LETTERS; i++) {
     // box borders every 12 letters (12 letters = 47 chars.
     // We can fit 50 in the box, so that's the max
     if (i % 12 == 0){
-      finish_line('|', 54); printf("\n| ");
+      finish_line('|', 57); printf("\n| ");
     }
     
     // stats about the letter are stored in the lookup
@@ -312,23 +314,23 @@ void flush(void) {
   }
   
   // box borders 
-  finish_line('|', 54); printf("\n| ");
-  finish_line('|', 54); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
+  finish_line('|', 57); printf("\n| ");
 
   // print and clear buffer
   printf("Flushing buffer...");
   for (i = 0; i < n_stored; i++) {
     // print a border every 50 characters
     if (i % 50 == 0) {
-      finish_line('|', 54); printf("\n| ");
+      finish_line('|', 57); printf("\n| ");
     }
     putchar(buffer0[i]);
   }
-  finish_line('|', 54);
+  finish_line('|', 57);
 
   // print the bottom border
   printf("\n+");
-  for (i = 0; i < 52; i++) putchar('-');
+  for (i = 0; i < 55; i++) putchar('-');
   printf("+\n");
 
   // actually clear buffer. We don't
@@ -337,4 +339,6 @@ void flush(void) {
   n_stored = 0;
   n_chars = 0;
   n_atprompt = 0;
+
+  DEBUGPORT('d');
 }
