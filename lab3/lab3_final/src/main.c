@@ -26,7 +26,7 @@ void flush();
 
 // global vars
 long near buff_len;
-int numberof[256];
+int xdata numberof[256];
 volatile char stat_letters[N_STAT_LETTERS + 1];
 volatile int near n_stored = 0;
 volatile int near n_chars = 0;
