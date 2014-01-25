@@ -114,6 +114,11 @@ int main(void)
       // skip the rest of the loop
       continue;
     }
+    else if(c == '\r') {
+      putchar(c);
+      printf(">> ");
+      n_atprompt = 0;
+    }
     // if it's not a backspace character, just echo
     else putchar(c);
 
