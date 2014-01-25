@@ -3,7 +3,7 @@
 
 #include <malloc.h>
 
-#define HEAP_SIZE 160
+#define HEAP_SIZE 1000
 
 void malloc_setup(void);
 
