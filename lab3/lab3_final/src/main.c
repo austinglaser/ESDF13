@@ -7,8 +7,8 @@ void get_buffers(void);
 void prompt(void);
 void hexdump(char const * buffer, int len);
 
-#define MAX_INPUT_LEN 128
-#define N_STAT_LETTERS    14
+#define MAX_INPUT_LEN   128
+#define N_STAT_LETTERS  14
 
 // user inputed length of buffer
 long buff_len;
