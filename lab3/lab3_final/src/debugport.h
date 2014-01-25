@@ -7,6 +7,6 @@
 #define DEBUGPORT(x)
 #endif
 
-void dataout(void xdata * address, char val);
+void dataout(char xdata * address, char  val);
 
 #endif
