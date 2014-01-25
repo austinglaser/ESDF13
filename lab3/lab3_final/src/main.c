@@ -27,7 +27,7 @@ void flush();
 // global vars
 long buff_len;
 int numberof[256];
-char stat_letters[N_STAT_LETTERS] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'F', 'E', 'M', 'A'};
+char stat_letters[N_STAT_LETTERS + 1];
 int n_stored = 0;
 int n_chars = 0;
 int n_atprompt = 0;
@@ -40,6 +40,10 @@ int main(void)
 {
   int i;
   char c;
+  n_stored = 0;
+  n_chars = 0;
+  n_atprompt = 0;
+  strcpy(stat_letters, "0123456789FEMA");
 
   // initialize heap
   setup();
@@ -182,7 +186,7 @@ void hexdump(char const * buffer, int len)
   printf("\n| ");
 
   // header line
-  printf("    + 0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F");
+  printf("      +0 +1 +2 +3 +4 +5 +6 +7 +8 +9 +A +B +C +D +E +F");
 
   for (i = 0; i < len; i++) {
     // every 16 bytes, print a border and
