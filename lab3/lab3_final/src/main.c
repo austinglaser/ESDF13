@@ -24,7 +24,7 @@ void flush();
 
 // global vars
 long near buff_len;
-int xdata __at(0x1610) numberof[256];
+int xdata __at(1610) numberof[256];
 volatile char stat_letters[N_STAT_LETTERS + 1];
 volatile int near n_stored = 0;
 volatile int near n_chars = 0;
@@ -60,12 +60,12 @@ int main(void)
   // print variable initial values, for debut purposes
 #ifdef DEBUG
   printf("Initial Info:\n");
-  printf("&n_stored: "); printn((unsigned) &n_stored, 16, 0);   putchar('\n');
-  printf("&n_chars: "); printn((unsigned) &n_chars, 16, 0);   putchar('\n');
-  printf("&n_atprompt: "); printn((unsigned) &n_atprompt, 16, 0);   putchar('\n');
-  printf("&buffer0: "); printn((unsigned) buffer0, 16, 0);   putchar('\n');
-  printf("&buffer1: "); printn((unsigned) buffer1, 16, 0);   putchar('\n');
-  printf("&numberof: "); printn((unsigned) numberof, 16, 0);   putchar('\n');
+  printf("&n_stored:\t"); printn((unsigned) &n_stored, 16, 0);   putchar('\n');
+  printf("&n_chars:\t"); printn((unsigned) &n_chars, 16, 0);   putchar('\n');
+  printf("&n_atprompt:\t"); printn((unsigned) &n_atprompt, 16, 0);   putchar('\n');
+  printf("&buffer0:\t"); printn((unsigned) buffer0, 16, 0);   putchar('\n');
+  printf("&buffer1:\t"); printn((unsigned) buffer1, 16, 0);   putchar('\n');
+  printf("&numberof:\t"); printn((unsigned) numberof, 16, 0);   putchar('\n');
   putchar('\n');
 #endif
 
