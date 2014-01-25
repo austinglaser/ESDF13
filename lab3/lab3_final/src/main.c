@@ -41,12 +41,18 @@ int main(void)
   int i;
   char c;
 
+  DEBUGPORT(0x01);
+
   // initialize heap
   setup();
+
+  DEBUGPORT(0x02);
 
   // prompt user for size, allocate buffers.
   // Blocks while waiting for correct input
   get_buffers();
+  
+  DEBUGPORT(0x03);
 
   n_stored = 0;
   n_chars = 0;
@@ -251,6 +257,7 @@ void flush(void) {
   printf(" characters since last flush.");
 
   // box borders
+  finish_line('|', 54); printf("\n| ");
   finish_line('|', 54); printf("\n| ");
 
   // give statistics about buffer state

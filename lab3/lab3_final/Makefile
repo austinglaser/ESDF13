@@ -51,6 +51,9 @@ LFLAGS = --model-$(MODEL) --out-fmt-ihx\
 # Main build target
 all: bin/main.hex
 
+debug: CFLAGS += -DDEBUG
+debug: all
+
 # Hex file
 bin/main.hex: $(OBJ_FILES) $(HDR_FILES) Makefile
 	@echo "Linking..."

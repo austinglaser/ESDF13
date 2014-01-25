@@ -1,6 +1,6 @@
 #include "lab3_malloc.h"
 
-unsigned char xdata heap[HEAP_SIZE];
+unsigned char xdata __at(0x0010) heap[HEAP_SIZE];
 
 void malloc_setup(void)
 {

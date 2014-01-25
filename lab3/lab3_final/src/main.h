@@ -9,6 +9,7 @@
 #include "getchar.h"
 #include "getstring.h"
 #include "lab3_malloc.h"
+#include "debugport.h"
 #include <stdio.h>
 #include <stdlib.h>
 
