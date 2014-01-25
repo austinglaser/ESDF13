@@ -27,10 +27,10 @@ void flush();
 // global vars
 long near buff_len;
 int numberof[256];
-char stat_letters[N_STAT_LETTERS + 1];
-int near n_stored = 0;
-int near n_chars = 0;
-int near n_atprompt = 0;
+volatile char stat_letters[N_STAT_LETTERS + 1];
+volatile int near n_stored = 0;
+volatile int near n_chars = 0;
+volatile int near n_atprompt = 0;
 
 //pointers to heap-allcoated memory
 char xdata * buffer0;
@@ -53,12 +53,15 @@ int main(void)
   n_atprompt = 0;
   memcpy(stat_letters, "0123456789FEMA", N_STAT_LETTERS + 1);
 
+  // print variable initial values, for debut purposes
+#ifdef DEBUG
   printf("Initial Info: ");
   printn(n_stored, 10, 0);   putchar(' ');
   printn(n_chars, 10, 0);    putchar(' ');
   printn(n_atprompt, 10, 0); putchar(' ');
   printf(stat_letters);
   putchar('\n');
+#endif
 
   prompt();
 
@@ -189,7 +192,10 @@ void hexdump(char const * buffer, int len)
 {
   int i;
   // top border
-  printf("\n\n+-------------------------------------------------------+");
+  printf("\n\n+");
+  for (i = 0; i < 55; i++) putchar('-');
+  putchar('+');
+
   // left border
   printf("\n| ");
 
@@ -206,11 +212,19 @@ void hexdump(char const * buffer, int len)
       // address info
       printn((int) (buffer + i), 16, 4); printf(": ");
     }
+
+    // buffer value
     printn(buffer[i], 16, 2);
     putchar(' ');
   }
+
+  // right border
   finish_line('|', 57);
-  printf("\n+-------------------------------------------------------+\n");
+  
+  // bottom border
+  printf("\n+");
+  for (i = 0; i < 55; i++) putchar('-');
+  printf("+\n");
 }
 
 void prompt(void)
