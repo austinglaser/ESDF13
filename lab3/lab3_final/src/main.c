@@ -247,6 +247,13 @@ void flush(void) {
   printf("+\n| ");
   
   // give statistics about buffer state
+  printf("Recieved "); printn(n_chars, 10, 0);
+  printf(" characters since last flush.");
+
+  // box borders
+  finish_line('|', 54); printf("\n| ");
+
+  // give statistics about buffer state
   printf("Stored "); printn(n_stored, 10, 0);
   printf(" characters in buffer0, with "); printn(buff_len - n_stored, 10, 0); printf(" free");
 
