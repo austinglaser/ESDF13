@@ -25,12 +25,12 @@ void flush();
 #define N_STAT_LETTERS  14
 
 // global vars
-long buff_len;
+long near buff_len;
 int numberof[256];
 char stat_letters[N_STAT_LETTERS + 1];
-int n_stored = 0;
-int n_chars = 0;
-int n_atprompt = 0;
+int near n_stored = 0;
+int near n_chars = 0;
+int near n_atprompt = 0;
 
 //pointers to heap-allcoated memory
 char xdata * buffer0;
@@ -40,10 +40,6 @@ int main(void)
 {
   int i;
   char c;
-  n_stored = 0;
-  n_chars = 0;
-  n_atprompt = 0;
-  strcpy(stat_letters, "0123456789FEMA");
 
   // initialize heap
   setup();
@@ -51,6 +47,17 @@ int main(void)
   // prompt user for size, allocate buffers.
   // Blocks while waiting for correct input
   get_buffers();
+
+  n_stored = 0;
+  n_chars = 0;
+  n_atprompt = 0;
+  memcpy(stat_letters, "0123456789FEMA", N_STAT_LETTERS + 1);
+
+  printf("Initial Info: ");
+  printn(n_stored, 10, 0);   putchar(' ');
+  printn(n_chars, 10, 0);    putchar(' ');
+  printn(n_atprompt, 10, 0); putchar(' ');
+  putchar('\n');
 
   prompt();
 
