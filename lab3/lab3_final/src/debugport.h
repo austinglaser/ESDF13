@@ -2,7 +2,7 @@
 #define _DEBUGPORT_H_
 
 #ifdef DEBUG
-#define DEBUGPORT(x) dataout(0xFFFF, (x))
+#define DEBUGPORT(x) dataout(0xFF00, (x))
 #else
 #define DEBUGPORT(x)
 #endif
