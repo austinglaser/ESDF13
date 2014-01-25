@@ -5,5 +5,8 @@
 #include <at89c51ed2.h>
 #include "putchar.h"
 #include "getchar.h"
+#include "lab3_malloc.h"
+#include <stdio.h>
+#include <malloc.h>
 
 #endif
