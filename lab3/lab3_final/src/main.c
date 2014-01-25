@@ -41,18 +41,18 @@ int main(void)
   int i;
   char c;
 
-  DEBUGPORT(0x01);
+  DEBUGPORT('e');
 
   // initialize heap
   setup();
 
-  DEBUGPORT(0x02);
+  DEBUGPORT('i');
 
   // prompt user for size, allocate buffers.
   // Blocks while waiting for correct input
   get_buffers();
   
-  DEBUGPORT(0x03);
+  DEBUGPORT('a');
 
   n_stored = 0;
   n_chars = 0;
@@ -133,6 +133,8 @@ int main(void)
     if (c == '?') {
       // print general stats
       flush();
+
+      // prompt the user
       prompt();
     }
 
@@ -150,9 +152,6 @@ int main(void)
 
 void setup(void)
 {
-  // enable 1024 bytes of XRAM
-  AUXR |= 0x0C;
-
   // initialize heap
   malloc_setup();
 }
@@ -244,6 +243,8 @@ void prompt(void)
   printf("\t?\tprint stats and clear buffer\n");
 
   printf("\n>> ");
+
+  n_atprompt = 0;
 }
 
 void flush(void) {
