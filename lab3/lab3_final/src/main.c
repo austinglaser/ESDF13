@@ -28,8 +28,8 @@ void flush();
 
 // global vars
 long near buff_len;
-unsigned char xdata /* __at(0x000C) */ heap[HEAP_SIZE];
-int xdata /*__at(1610)*/ numberof[256];
+unsigned char xdata __at(0x001C) heap[HEAP_SIZE];
+int xdata numberof[256];
 volatile char stat_letters[N_STAT_LETTERS + 1];
 volatile int near n_stored = 0;
 volatile int near n_chars = 0;
