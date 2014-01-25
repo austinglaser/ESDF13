@@ -6,6 +6,9 @@
 #include "putchar.h"
 #include "getchar.h"
 #include "lab3_malloc.h"
+#include "printn.h"
+#include "getstring.h"
+#include "strtoi.h"
 #include <stdio.h>
 #include <malloc.h>
 
