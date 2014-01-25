@@ -197,6 +197,9 @@ void get_buffers(void) {
 void hexdump(char const * buffer, int len)
 {
   int i;
+
+  DEBUGPORT('h');
+
   // top border
   printf("\n\n+");
   for (i = 0; i < 55; i++) putchar('-');
@@ -245,6 +248,9 @@ void prompt(void)
 
 void flush(void) {
   int i;
+
+  DEBUGPORT('f');
+
   // print top of box. before every newline, we finish the line with the right side.
   // It might make sense to do this automatically with putchar (toggle box on/off
   // with a global variable) but for now, it's all manual.
