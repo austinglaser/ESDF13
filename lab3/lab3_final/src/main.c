@@ -126,10 +126,11 @@ int main(void)
 
         numberof[stat_letters[i]] = 0;
       }
+      finish_line('|', 54);
 
       // clear buffer, printing to screen
       printf("\n| ");                   finish_line('|', 54);
-      printf("\n| Flushing buffer..."); finish_line('|', 54);
+      printf("\n| Flushing buffer...");
       for (i = 0; i < n_stored; i++) {
         if (i % 50 == 0) {
           finish_line('|', 54);
@@ -137,6 +138,7 @@ int main(void)
         }
         putchar(buffer0[i]);
       }
+      finish_line('|', 54);
 
       printf("\n+");
       for (i = 0; i < 52; i++) putchar('-');
