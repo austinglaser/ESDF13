@@ -8,14 +8,14 @@ void putchar(char in_c)
     while (!TI);
     TI = 0;
     SBUF = 0x0D;
-    //n_online = 0;
+    n_online = 0;
   }
 
   while (!TI);
   TI = 0;
   SBUF = in_c;
 
-  //n_online++;
+  n_online++;
 }
 
 void finish_line(char term, int len)
