@@ -37,6 +37,7 @@ I_INCLUDE = $(addprefix -I,$(dir $(INCLUDE)))
 
 # Find local source files, generate list of objects
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+HDR_FILES = $(wildcard $(SRC_DIR)/*.h)
 OBJ_FILES = $(addprefix $(BIN_DIR)/,$(notdir $(SRC_FILES:.c=.rel)))
 
 # Flags for the compiler
@@ -51,12 +52,12 @@ LFLAGS = --model-$(MODEL) --out-fmt-ihx\
 all: bin/main.hex
 
 # Hex file
-bin/main.hex: $(OBJ_FILES)
+bin/main.hex: $(OBJ_FILES) $(HDR_FILES) Makefile
 	@echo "Linking..."
 	@$(CC) $(LFLAGS) $(OBJ_FILES) -o bin/main.hex
 
 # Object files (TODO: Make more general. See ARM stuff)
-$(OBJ_FILES): $(BIN_DIR)/%.rel: $(SRC_DIR)/%.c
+$(OBJ_FILES): $(BIN_DIR)/%.rel: $(SRC_DIR)/%.c $(SRC_DIR)/%.h
 	@echo "Compiling $< ---> $@"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
