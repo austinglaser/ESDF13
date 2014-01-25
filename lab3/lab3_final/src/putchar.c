@@ -11,14 +11,15 @@ void putchar(char out_c)
   // we have to print two characters:
   // carriage return and newline. This
   // is also where we reset the character count
-  if (out_c == '\n') {
+  if (out_c == '\n' || out_c == '\r') {
+    out_c = '\n';
 
     // block until previous character is transmitted
     while (!TI);
 
     // send a linefeed
     TI = 0;
-    SBUF = 0x0D;
+    SBUF = '\r';
 
     // reset character count
     n_online = 0;
