@@ -61,11 +61,13 @@ int main(void)
 
   // print variable initial values, for debut purposes
 #ifdef DEBUG
-  printf("Initial Info: ");
-  printn(n_stored, 10, 0);   putchar(' ');
-  printn(n_chars, 10, 0);    putchar(' ');
-  printn(n_atprompt, 10, 0); putchar(' ');
-  printf(stat_letters);
+  printf("Initial Info:\n");
+  printf("&n_stored: "); printn((unsigned) &n_stored, 16, 0);   putchar('\n');
+  printf("&n_chars: "); printn((unsigned) &n_chars, 16, 0);   putchar('\n');
+  printf("&n_atprompt: "); printn((unsigned) &n_atprompt, 16, 0);   putchar('\n');
+  printf("&buffer0: "); printn((unsigned) buffer0, 16, 0);   putchar('\n');
+  printf("&buffer1: "); printn((unsigned) buffer1, 16, 0);   putchar('\n');
+  printf("&numberof: "); printn((unsigned) numberof, 16, 0);   putchar('\n');
   putchar('\n');
 #endif
 
@@ -294,7 +296,7 @@ void flush(void) {
   for (i = 0; i < N_STAT_LETTERS; i++) {
     // box borders every 12 letters (12 letters = 47 chars.
     // We can fit 50 in the box, so that's the max
-    if (i % 12 == 0){
+    if (i % 8 == 0){
       finish_line('|', 57); printf("\n| ");
     }
     
