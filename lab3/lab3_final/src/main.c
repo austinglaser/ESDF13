@@ -3,6 +3,9 @@
 // run all setup functions. Currently just initializes heap
 void setup(void);
 
+// initializes the heap directly
+void malloc_setup(void);
+
 // get the user's desired buffer size, attempt allocation
 void get_buffers(void);
 
@@ -21,10 +24,12 @@ void flush();
 
 #define MAX_INPUT_LEN   128
 #define N_STAT_LETTERS  14
+#define HEAP_SIZE       1600
 
 // global vars
 long near buff_len;
-int xdata __at(1610) numberof[256];
+unsigned char xdata /* __at(0x000C) */ heap[HEAP_SIZE];
+int xdata /*__at(1610)*/ numberof[256];
 volatile char stat_letters[N_STAT_LETTERS + 1];
 volatile int near n_stored = 0;
 volatile int near n_chars = 0;
@@ -154,6 +159,11 @@ void setup(void)
 {
   // initialize heap
   malloc_setup();
+}
+
+void malloc_setup(void)
+{
+  init_dynamic_memory((MEMHEADER xdata *) heap, HEAP_SIZE);
 }
 
 void get_buffers(void) {
